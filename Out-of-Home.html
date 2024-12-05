@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Out of Home (OOH)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Card Hover Effect */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Title Decoration */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #EF4444;
+            margin: 0.5rem auto;
+        }
+
+        /* Icon Background Effect */
+        .icon-container {
+            background: linear-gradient(135deg, #EF4444, #F87171);
+        }
+
+        .icon-container:hover {
+            background: linear-gradient(135deg, #F87171, #EF4444);
+        }
+    </style>
+</head>
+<!-- Header -->
+<header class="fixed w-full bg-white shadow-md z-50">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="images/logo.webp" alt="Crosshair Media" class="h-12" 
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
+                </a>
+            </div>
+            
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <!-- Dropdown Menu for 'What We Offer' -->
+                <div class="relative group">
+                    <a href="#services" class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
+                        <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Community Engagement</a>
+                        <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Data and Insights</a>
+                        <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
+                    </div>
+                </div>
+
+                <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
+                <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
+                <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
+                <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600">
+                    Contact Us
+                </a>
+              
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+    <!-- Hero Section -->
+    <section class="relative h-[50vh] bg-[url('images/ooh.webp')] bg-cover bg-center flex items-center">
+        <div class="w-full h-full bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center text-white">
+            <h1 class="text-4xl font-bold mb-4">Out of Home (OOH)</h1>
+            <p class="text-lg">Innovative strategies for impactful brand visibility.</p>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 section-title text-center">Overview</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                In South Africa, Out of Home continues to demonstrate its capacity to reliably reach a specified audience and has proven to be fantastically adaptive and resilient when it comes to the changes brought about by digital and internet advertising.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                At Crosshair Media, we see OOH as a high-impact platform that allows us to position your campaign effectively, ensure visibility, and promote brand recall and affinity.
+            </p>
+           
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Our campaigns embrace the evolving media landscape, leveraging innovative approaches like Digital Out of Home (DOOH) and Programmatic Digital Out of Home (PDOOH). These strategies ensure your brand reaches the right audience, including South Africa’s progressive and captive student youth market.
+            </p>
+        </div>
+    </section>
+
+    <!-- Client Spotlight Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 text-center section-title">Client Spotlight</h2>
+            <div class="flex flex-col md:flex-row items-center mt-8">
+                <div class="md:w-1/2">
+                    <img src="images/oohBanner.png" alt="Standard Bank OOH Campaign" class="rounded-lg shadow-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-8 mt-6 md:mt-0">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Standard Bank: 'We are Culture'</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Crosshair Media's client, Standard Bank, has taken advantage of our excellent and relevant OOH and DOOH billboard opportunities in Braamfontein. The groundbreaking <strong>‘We are Culture’</strong> exhibition celebrates the re-opening of the Standard Bank gallery after a two-year closure.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        This campaign demonstrates how OOH advertising can effectively connect with a vibrant and diverse audience, enhancing visibility and fostering meaningful brand connections in the heart of Johannesburg.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 text-center section-title">Opportunities</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Large Format Iconic</h3>
+                    <p class="text-gray-600">Building wraps, streetside billboards, and other large-format options.</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Digital Out of Home</h3>
+                    <p class="text-gray-600">Outdoor digital screens for impactful, dynamic advertising.</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Street Wallscapes</h3>
+                    <p class="text-gray-600">Murals and wallscapes to make a lasting statement.</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ambient Media</h3>
+                    <p class="text-gray-600">In-building student residence branding ensures your message is read.</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Events and Activations</h3>
+                    <p class="text-gray-600">Promote your brand and make an impression on a targeted audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-900 text-center section-title">Benefits</h2>
+        <p class="text-lg text-gray-700 text-center mb-12">
+            Discover the advantages of using Out of Home (OOH) advertising to amplify your brand's reach and engagement.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Benefit 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">High-Reach Platforms</h3>
+                <p class="text-gray-700">
+                    Provide access to high-reach OOH and DOOH platforms to maximize audience engagement.
+                </p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Target Key Zones</h3>
+                <p class="text-gray-700">
+                    Target high-traffic and pedestrian volume zones for unparalleled visibility.
+                </p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Innovative Tactics</h3>
+                <p class="text-gray-700">
+                    Implement innovation tactics like LED cut-aways to leave a lasting impression.
+                </p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Iconic Sites Access</h3>
+                <p class="text-gray-700">
+                    Gain first access to iconic Crosshair Media sites in five major cities, ensuring impactful campaigns.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Call-to-Action -->
+    <section class="py-12 bg-red-500 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Start Your Campaign</h2>
+            <p class="text-lg mb-6">
+                Connect with us to explore our complete OOH offerings, from creative approval to production and flighting.
+            </p>
+            <a href="Contact-Us.html" class="bg-white text-red-500 font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition">
+                Contact Us
+            </a>
+        </div>
+    </section>
+</body>
+</html>
