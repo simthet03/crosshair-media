@@ -78,14 +78,24 @@
     </nav>
 </header>
 <body>
-    <!-- Hero Section -->
-    <section class="relative h-[50vh] bg-[url('images/dna.webp')] bg-cover bg-center flex items-center">
-        <div class="w-full h-full bg-black bg-opacity-50"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center text-white">
-            <h1 class="text-4xl font-bold mb-4">Data and Insights</h1>
-            <p class="text-lg">Leverage the power of data for smarter decision-making.</p>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="relative h-[70vh] bg-[url('images/dna.webp')] bg-cover bg-center flex items-center">
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+    
+    <!-- Content -->
+    <div class="container mx-auto px-6 relative z-10 text-center text-white">
+        <!-- Heading with hover effect -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 hover:text-red-500 transition-all duration-300">
+            Data and Insights
+        </h1>
+        <!-- Subtitle with hover effect -->
+        <p class="text-xl md:text-2xl hover:text-red-500 transition-all duration-300">
+            Leverage the power of data for smarter decision-making.
+        </p>
+    </div>
+</section>
+
 
     <!-- Main Content -->
     <section class="py-12 bg-white">
