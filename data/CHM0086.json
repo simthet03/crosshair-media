@@ -1,0 +1,57 @@
+{
+    "uuid": "7b9f3fd9-2738-455f-8ab2-0a03ac96cd41",
+    "site_id": "CHM0086",
+    "name": "CHM0086 87 Juta Street (Street Wallscape)",
+    "location": {
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "Corner Juta & Melle Street wall. Situated outside entrance to Argon student residence building. High pedestrian foot-flow and traffic volume.",
+    "format": "Street Wallscape",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "2.3m h x 3.5m w",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R6,500",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R5,799",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-03-10",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "217906",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}

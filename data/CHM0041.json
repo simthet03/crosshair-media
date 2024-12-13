@@ -1,0 +1,60 @@
+{
+    "uuid": "de945dce-ff51-41dd-a62d-0c5157976ac3",
+    "site_id": "CHM0041",
+    "name": "CHM0041 Randlords Building Wrap",
+    "location": {
+        "address": "41 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.193763",
+            "longitude": "28.031845"
+        }
+    },
+    "description": "Sightlines from Northbound commuter traffic on M2 highway, as well as Northbound commuter traffic from JHB CBD entering the heart of Braamfontein CBD and retail node by Nelson Mandela Bridge.",
+    "format": "Iconic Building Wrap",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "35m x 55m",
+            "sqm": "1925",
+            "illumination": "Front Lit"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "350m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R319,025",
+        "discounted_rate": "R287,123",
+        "printing_and_flighting": "R254,900",
+        "cpt_cpm": "R24.84",
+        "cost_per_sqm": "R149.15"
+    },
+    "availability": "2025-12-13",
+    "audience_impacts": {
+        "all_adults": "11559895",
+        "lsm_8_10": "2986306",
+        "lsm_5_7": "5201953",
+        "gen_z": "1981696",
+        "millennials": "2600976"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.193763,28.031845"
+    }
+}

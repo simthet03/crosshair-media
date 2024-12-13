@@ -1,0 +1,57 @@
+{
+    "uuid": "f4031304-df40-4f01-8836-f7ef51a7a41f",
+    "site_id": "CHM0017",
+    "name": "CHM0017 Glass Facade",
+    "location": {
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "South Point HQ glass facade. Site has high student pedestrian volumes. Main approach to/from Neighbourgoods Market. Saturdays and First Thursdays are extremely busy. Gathering place for tourists and office workers. Situated opposite Once in Joburg Hotel, a high frequent tourist destination.",
+    "format": "Shop Front | Glass Facade",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "1.3m h x 5.7m w",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R14,195",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R7,270",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-01-21",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "217906",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}

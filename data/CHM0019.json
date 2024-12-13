@@ -1,0 +1,57 @@
+{
+    "uuid": "7c04c4d6-435f-4e83-b041-17cbd9a508dd",
+    "site_id": "CHM0019",
+    "name": "CHM0019 17 Melle Street (Street Wallscape)",
+    "location": {
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "Static site. Main approach to/from the Neighbourgoods Market alleyway. High student foot-flow and leisure traffic zone on Thursdays, Fridays and weekends.",
+    "format": "Street Wallscape",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "2.5m h x 2.8m w",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R7,500",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R3,150",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-09-05",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "217906",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}

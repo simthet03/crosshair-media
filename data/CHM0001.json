@@ -1,0 +1,60 @@
+{
+    "uuid": "e0ce48b8-4b0d-435b-ab27-036390cb26bd",
+    "site_id": "CHM0001",
+    "name": "Queen Elizabeth Bridge Wrap",
+    "location": {
+        "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.195999",
+            "longitude": "28.037148"
+        }
+    },
+    "description": "Sightlines from Northbound commuter traffic leaving JHB CBD and entering the heart of Braamfontein CBD and retail node via the Queen Elizabeth bridge.",
+    "format": "Iconic Building Wrap",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "32.3m x 26.2m",
+            "sqm": "846.6",
+            "illumination": "Non-Illuminated"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "400m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R180,460",
+        "discounted_rate": "R162,414",
+        "printing_and_flighting": "R114,755",
+        "cpt_cpm": "R20.15",
+        "cost_per_sqm": "R191.84"
+    },
+    "availability": "2025-01-12",
+    "audience_impacts": {
+        "all_adults": "8060040",
+        "lsm_8_10": "2220988",
+        "lsm_5_7": "3788219",
+        "gen_z": "1504541",
+        "millennials": "1934410"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.195999,28.037148"
+    }
+}

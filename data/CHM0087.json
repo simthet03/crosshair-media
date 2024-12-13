@@ -1,0 +1,60 @@
+{
+    "uuid": "9a912f35-881a-4939-b879-f85237a4f8ab",
+    "site_id": "CHM0087",
+    "name": "CHM0087 Hop-On Hop-Off Tour Stop",
+    "location": {
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.194125",
+            "longitude": "28.036280"
+        }
+    },
+    "description": "Located in the key student hub, amplifying tactical activations of a captive student and leisure audience. This spot is an official hop-on hop-off stop of the Johannesburg sight-seeing red bus tours.",
+    "format": "Wall Sign",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "2.78m x 9.66m",
+            "sqm": "26.85",
+            "illumination": "Non-Illuminated"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "290m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R35,986",
+        "discounted_rate": "R32,387",
+        "printing_and_flighting": "R5,650",
+        "cpt_cpm": "R6.85",
+        "cost_per_sqm": "R1,206.22"
+    },
+    "availability": "2025-03-23",
+    "audience_impacts": {
+        "all_adults": "4730304",
+        "lsm_8_10": "1283095",
+        "lsm_5_7": "2199591",
+        "gen_z": "993364",
+        "millennials": "1117534"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.194125,28.036280"
+    }
+}

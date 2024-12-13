@@ -1,0 +1,60 @@
+{
+    "uuid": "05fb0e08-263d-49eb-b0d4-5fee7687fe42",
+    "site_id": "CHM0067",
+    "name": "CHM0067 South Point Student Res (East Facing)",
+    "location": {
+        "address": "66 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.193880",
+            "longitude": "28.034034"
+        }
+    },
+    "description": "Located in the heart of Braamfontein retail node. Sightlines from Westbound commuter traffic down De Korte Street into heart of Braamfontein CBD heading towards Wits University. Direct sightline from Neighbourgoods Market.",
+    "format": "Iconic Building Wrap",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "17.1m x 12.3m",
+            "sqm": "200.1",
+            "illumination": "Front Lit"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "376m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R65,750",
+        "discounted_rate": "R59,175",
+        "printing_and_flighting": "R30,014",
+        "cpt_cpm": "R7.34",
+        "cost_per_sqm": "R295.73"
+    },
+    "availability": "2025-09-23",
+    "audience_impacts": {
+        "all_adults": "8066968",
+        "lsm_8_10": "2500760",
+        "lsm_5_7": "3388127",
+        "gen_z": "1452054",
+        "millennials": "2178081"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.193880,28.034034"
+    }
+}

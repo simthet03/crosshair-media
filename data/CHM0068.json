@@ -1,0 +1,66 @@
+{
+    "uuid": "ee5a2324-345a-4558-aa79-e06cce1ef253",
+    "site_id": "CHM0068",
+    "name": "CHM0068 South Point Student Res (North & West Facing)",
+    "location": {
+        "address": "66 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.193880",
+            "longitude": "28.034034"
+        }
+    },
+    "description": "Premium gateway site into Braamfontein from Northern Suburbs. Located in the heart of Braamfontein retail node & CBD. Sightlines from Southbound commuter traffic on Bertha Street heading towards Nelson Mandela Bridge.",
+    "format": "Iconic Building Wrap",
+    "displays": [
+        {
+            "orientation": "Front",
+            "size": "29.9m x 34.9m",
+            "sqm": "986.2",
+            "illumination": "Non-Illuminated"
+        },
+        {
+            "orientation": "Side",
+            "size": "29.9m x 12.3m",
+            "sqm": "200",
+            "illumination": "Non-Illuminated"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "376m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R235,921",
+        "discounted_rate": "R212,329",
+        "printing_and_flighting": "R184,374",
+        "cpt_cpm": "R23.38",
+        "cost_per_sqm": "R179.00"
+    },
+    "availability": "2024-12-22",
+    "audience_impacts": {
+        "all_adults": "9080370",
+        "lsm_8_10": "2502146",
+        "lsm_5_7": "3904559",
+        "gen_z": "1695002",
+        "millennials": "2179289"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.193880,28.034034"
+    }
+}

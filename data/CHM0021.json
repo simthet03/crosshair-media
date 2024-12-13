@@ -1,0 +1,57 @@
+{
+    "uuid": "f1c2d567-e8f0-11eb-91a0-0242ac120002",
+    "site_id": "CHM0021",
+    "name": "CHM0021 16 Melle Street (Street Wallscape)",
+    "location": {
+        "address": "16 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "The Once In Joburg Hotel walkway wall. Situated opposite The Once In Joburg Hotel & South Point HQ. Site has high pedestrian volumes. Central activation hub for brands. High visibility zone.",
+    "format": "Street Wallscape",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "2.3m h x 8m w",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R8,375",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R9,280",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-03-21",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "217906",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}

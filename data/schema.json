@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "uuid": { "type": "string", "pattern": "^[a-f0-9\\-]{36}$" },
+      "site_id": { "type": "string" },
+      "name": { "type": "string" },
+      "location": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string" },
+          "coordinates": {
+            "type": "object",
+            "properties": {
+              "latitude": { "type": "string" },
+              "longitude": { "type": "string" }
+            },
+            "required": ["latitude", "longitude"]
+          }
+        },
+        "required": ["address", "coordinates"]
+      },
+      "description": { "type": "string" },
+      "format": { "type": "string" },
+      "displays": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "orientation": { "type": "string" },
+            "size": { "type": "string" },
+            "sqm": { "type": "string" },
+            "illumination": { "type": "string" }
+          },
+          "required": ["size", "illumination"]
+        }
+      },
+      "visibility": { "type": "string" },
+      "obstructions": { "type": "string" },
+      "ara_compliant": { "type": "string", "enum": ["true", "false"] },
+      "rates": {
+        "type": "object",
+        "properties": {
+          "rate_card": { "type": "string" },
+          "discounted_rate": { "type": "string" },
+          "printing_and_flighting": { "type": "string" },
+          "cpt_cpm": { "type": "string" },
+          "cost_per_sqm": { "type": "string" }
+        },
+        "required": ["rate_card", "discounted_rate", "printing_and_flighting"]
+      },
+      "availability": { "type": "string", "format": "date" },
+      "audience_impacts": {
+        "type": "object",
+        "properties": {
+          "all_adults": { "type": "string" },
+          "lsm_8_10": { "type": "string" },
+          "lsm_5_7": { "type": "string" },
+          "gen_z": { "type": "string" },
+          "millennials": { "type": "string" }
+        }
+      },
+      "media": {
+        "type": "object",
+        "properties": {
+          "logo": { "type": "string" },
+          "images": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "video": { "type": "string" },
+          "map_link": { "type": "string", "format": "uri" }
+        },
+        "required": ["images"]
+      }
+    },
+    "required": [
+      "uuid",
+      "site_id",
+      "name",
+      "location",
+      "description",
+      "format",
+      "displays",
+      "rates",
+      "media"
+    ]
+  }
+  

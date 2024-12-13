@@ -1,0 +1,60 @@
+{
+    "uuid": "0a47ee6d-af6b-452d-82cc-a459c6528b10",
+    "site_id": "CHM0070",
+    "name": "CHM0070 1 Biccard Street",
+    "location": {
+        "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "Static site. Located at the bottom of Braamfontein. Sightlines from Westbound commuter traffic down Wolmarans Street from Park Station heading towards the M1 highway.",
+    "format": "Street Wallscape",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "2.3m x 6m",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R11,375",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R6,256",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-08-08",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "697355",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}

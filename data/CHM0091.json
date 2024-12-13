@@ -1,0 +1,60 @@
+{
+    "uuid": "e77ff04b-1a22-442d-9cc7-bd11f2495a0c",
+    "site_id": "CHM0091",
+    "name": "CHM0091 17 Melle Street",
+    "location": {
+        "address": "17 Melle Street, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "-26.194167",
+            "longitude": "28.035895"
+        }
+    },
+    "description": "Targets high traffic volume along Melle Street from JHB CBD entering Braamfontein.",
+    "format": "Roadside Digital",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "3m (h) x 6m (w)",
+            "sqm": "18",
+            "illumination": "Illuminated"
+        }
+    ],
+    "size": "",
+    "sqm": "",
+    "illumination": "",
+    "visibility": "350m",
+    "obstructions": "None",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R18,000",
+        "discounted_rate": "R15,300",
+        "printing_and_flighting": "",
+        "cpt_cpm": "R22.52",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-02-11",
+    "audience_impacts": {
+        "all_adults": "4743248",
+        "lsm_8_10": "2134462",
+        "lsm_5_7": "1470407",
+        "gen_z": "1138380",
+        "millennials": "1280677"
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": "https://www.google.com/maps?q=-26.194167,28.035895"
+    }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
+            transition: transform 0.3s;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-3xl font-bold text-gray-800">Site Gallery</h1>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="container mx-auto px-6 py-4">
+        <input 
+            type="text" 
+            id="searchBar" 
+            placeholder="Search by site name or location..." 
+            class="w-full p-2 border border-gray-300 rounded-md shadow-sm"
+            oninput="filterCards()"
+        >
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="py-10">
+        <div class="container mx-auto px-6">
+            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button onclick="closeModal()" class="text-red-500 font-bold text-xl float-right">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Crosshair Media. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to load JSON file
+        async function fetchJSON(file) {
+            const response = await fetch(file);
+            if (!response.ok) {
+                console.error(`Failed to fetch ${file}:`, response.statusText);
+                return null;
+            }
+            return await response.json();
+        }
+
+        // Function to create a card
+        function createCard(site) {
+    return `
+        <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" data-name="${site.name.toLowerCase()}" data-location="${site.location.address.toLowerCase()}" onclick="openModal('${site.site_id}')">
+            <img src="data/images/${site.site_id}-image1.jpg" alt="Site Image" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold text-gray-800">${site.site_id}</h2>
+                <p class="text-gray-600">${site.name}</p>
+                <p class="text-gray-600 text-sm">Location: ${site.location.address}</p>
+                <p class="text-gray-600 text-sm">Size: ${site.displays[0]?.size || "N/A"}</p>
+                <p class="text-gray-600 text-sm">Type: ${site.format}</p>
+                <p class="text-gray-600 text-sm">Availability: ${site.availability}</p>
+            </div>
+            <div class="flex justify-around p-4 border-t">
+                <a href="https://maps.google.com?q=${site.location.coordinates.latitude},${site.location.coordinates.longitude}" target="_blank" class="icon">
+                    <i class="fas fa-map-marker-alt text-gray-600 text-xl hover:text-blue-500"></i>
+                </a>
+                <a href="data/images/${site.site_id}-gallery" target="_blank" class="icon">
+                    <i class="fas fa-images text-gray-600 text-xl hover:text-blue-500"></i>
+                </a>
+                <a href="https://earth.google.com/web/@${site.location.coordinates.latitude},${site.location.coordinates.longitude},100a,35d,1y,0h" target="_blank" class="icon">
+                    <i class="fas fa-globe text-gray-600 text-xl hover:text-blue-500"></i>
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+
+        // Function to open the modal
+        function openModal(siteId) {
+            const modal = document.getElementById("modal");
+            const modalBody = document.getElementById("modal-body");
+
+            fetchJSON(`data/${siteId}.json`).then(site => {
+                if (site) {
+                    modalBody.innerHTML = `
+                        <h2 class="text-2xl font-bold mb-4">${site.site_id} - ${site.name}</h2>
+                        <p><strong>Location:</strong> ${site.location.address}</p>
+                        <p><strong>Size:</strong> ${site.displays[0]?.size || "N/A"}</p>
+                        <p><strong>Type:</strong> ${site.format}</p>
+                        <p><strong>Availability:</strong> ${site.availability}</p>
+                        <p><strong>Description:</strong> ${site.description}</p>
+                    `;
+                    modal.style.display = "flex";
+                }
+            });
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Function to filter cards based on search
+        function filterCards() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const cards = document.querySelectorAll("#gallery > div");
+
+            cards.forEach(card => {
+                const name = card.getAttribute("data-name");
+                const location = card.getAttribute("data-location");
+
+                if (name.includes(query) || location.includes(query)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Load all site JSON files and populate the gallery
+        async function loadGallery() {
+            const gallery = document.getElementById("gallery");
+            const files = [
+                "data/CHM0001.json",
+                "data/CHM0017_glass_facade.json",
+                "data/CHM0018.json",
+                "data/CHM0021.json",
+                "data/CHM0023.json",
+                "data/CHM0041.json",
+                "data/CHM0067.json",
+                "data/CHM0068.json",
+                "data/CHM0070.json",
+                "data/CHM0086.json",
+                "data/CHM0087.json",
+                "data/CHM0088.json",
+                "data/CHM0089.json",
+                "data/CHM0091.json"
+            ];
+
+            for (const file of files) {
+                const site = await fetchJSON(file);
+                if (site) {
+                    gallery.innerHTML += createCard(site);
+                }
+            }
+        }
+
+        // Load the gallery on page load
+        loadGallery();
+    </script>
+</body>
+</html>

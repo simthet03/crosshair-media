@@ -1,0 +1,57 @@
+{
+    "uuid": "34316100-212d-41e1-a002-62af752a3cb1",
+    "site_id": "CHM0023",
+    "name": "CHM0023 90 De Korte Street (Shop Front | Glass Facade)",
+    "location": {
+        "address": "90 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "coordinates": {
+            "latitude": "",
+            "longitude": ""
+        }
+    },
+    "description": "African Flavours store glass fa\u00c3\u00a7ade. Opposite Puma Braamfontein store corner De Korte & Melle Street. Site has extremely high traffic & pedestrian volumes. High visibility zone.",
+    "format": "Shop Front | Glass Facade",
+    "displays": [
+        {
+            "orientation": "",
+            "size": "5.3m h x 3.7m w",
+            "sqm": "",
+            "illumination": "None"
+        }
+    ],
+    "visibility": "",
+    "obstructions": "",
+    "ara_compliant": "true",
+    "rates": {
+        "rate_card": "R21,994",
+        "discounted_rate": "R TBN",
+        "printing_and_flighting": "R10,180",
+        "cpt_cpm": "",
+        "cost_per_sqm": ""
+    },
+    "availability": "2025-10-03",
+    "audience_impacts": {
+        "all_adults": "",
+        "lsm_8_10": "",
+        "lsm_5_7": "217906",
+        "gen_z": "",
+        "millennials": ""
+    },
+    "media": {
+        "logo": "path/data/images/logo.jpg",
+        "images": [
+            "path/data/images/image1.jpg",
+            "path/data/images/image2.jpg",
+            "path/data/images/image3.jpg",
+            "path/data/images/image4.jpg",
+            "path/data/images/image5.jpg",
+            "path/data/images/image6.jpg",
+            "path/data/images/image7.jpg",
+            "path/data/images/image8.jpg",
+            "path/data/images/image9.jpg",
+            "path/data/images/image10.jpg"
+        ],
+        "video": "path/data/images/video.mp4",
+        "map_link": ""
+    }
+}
