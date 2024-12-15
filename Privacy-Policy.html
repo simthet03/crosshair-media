@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Crosshair Media</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Policy - Crosshair Media</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -31,168 +32,435 @@
             margin: 0.5rem auto;
         }
     </style>
+<style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- Scroll Progress Bar -->
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scroll-progress"></div>
+<!-- Scroll Progress Bar -->
 <div class="scroll-progress" id="scroll-progress"></div>
 <!-- Header -->
 <header class="fixed w-full bg-white shadow-md z-50">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="index.html">
-                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16" 
-                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
-                </a>
-            </div>
-            
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <!-- Dropdown Menu for 'What We Offer' -->
-                <div class="relative group">
-                    <a href="#services" class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
-                        <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Community Engagement</a>
-                        <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Data and Insights</a>
-                        <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
-                    </div>
-                </div>
-
-                <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
-                <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
-                <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
-                <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600">
-                    Contact Us
-                </a>
-              
-            </div>
-        </div>
-    </nav>
+<nav class="container mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<a href="index.html"><img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='&lt;div class=\'h-12 w-48 bg-gray-300 rounded\'&gt;&lt;/div&gt;'" src="images/logo.webp"/></a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<!-- Dropdown Menu for 'What We Offer' -->
+<div class="relative group">
+<a class="nav-link text-gray-800 hover:text-red-500 transition-all" href="#services">What We Offer</a>
+<div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
+</div>
+</div>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
+<a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
+                        Contact Us
+                    </a>
+</div>
+</div>
+</nav>
 </header>
-
-    <!-- Hero Section -->
-    <section class="relative h-[50vh] bg-[url('images/privacyPolicyBanner.webp')] bg-cover bg-center flex items-center justify-center text-white">
-        <div class="w-full h-full bg-black bg-opacity-50"></div>
-        <div class="text-center z-10">
-            <h1 class="text-4xl font-bold">Privacy Policy</h1>
-            <p class="text-lg mt-2">Effective Date: 24 May 2023</p>
-        </div>
-    </section>
-
-    <!-- Privacy Policy Section -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-900 section-title text-center">Privacy Policy</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+<!-- Hero Section -->
+<section class="relative h-[50vh] bg-[url('images/privacyPolicyBanner.webp')] bg-cover bg-center flex items-center justify-center text-white">
+<div class="w-full h-full bg-black bg-opacity-50"></div>
+<div class="text-center z-10">
+<h1 class="text-4xl font-bold">Privacy Policy</h1>
+<p class="text-lg mt-2">Effective Date: 24 May 2023</p>
+</div>
+</section>
+<!-- Privacy Policy Section -->
+<section class="py-12 bg-white">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-gray-900 section-title text-center">Privacy Policy</h2>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 This Privacy Policy governs the manner in which Crosshair Media (PTY) LTD ('we,' 'us,' or 'our') collects, uses, maintains, and discloses information collected from users ('you' or 'users') of our website, [Website URL] ('Website'). This Privacy Policy applies to the Website and all products and services offered by Crosshair Media (PTY) LTD.
             </p>
-        </div>
-    </section>
-
-    <!-- Details -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">1. Information Collection</h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+</div>
+</section>
+<!-- Details -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-6">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">1. Information Collection</h3>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 We may collect personal identification information from users in various ways, including but not limited to when users visit our Website, register on the Website, place an order, subscribe to our newsletter, respond to a survey, fill out a form, or engage in other activities, services, features, or resources we make available on our Website. Users may also visit our Website anonymously. We will collect personal identification information from users only if they voluntarily submit such information to us.
             </p>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">2. Information Usage</h3>
-            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-4">
-                <li>To improve customer service</li>
-                <li>To personalize user experience</li>
-                <li>To improve our Website</li>
-                <li>To process transactions</li>
-                <li>To send periodic emails</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">3. Information Protection</h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">2. Information Usage</h3>
+<ul class="list-disc pl-6 text-lg text-gray-700 space-y-4">
+<li>To improve customer service</li>
+<li>To personalize user experience</li>
+<li>To improve our Website</li>
+<li>To process transactions</li>
+<li>To send periodic emails</li>
+</ul>
+<h3 class="text-2xl font-bold text-gray-900 mb-4">3. Information Protection</h3>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information.
             </p>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">4. Sharing Personal Information</h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">4. Sharing Personal Information</h3>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 We do not sell, trade, or rent users' personal identification information to others.
             </p>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">5. Third-Party Websites</h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">5. Third-Party Websites</h3>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 Users may find advertising or other content on our Website that links to the sites and services of our partners, suppliers, and other third parties. Browsing and interaction on any other website is subject to that website's own terms and policies.
             </p>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">6. Changes to this Privacy Policy</h3>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">6. Changes to this Privacy Policy</h3>
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
                 Crosshair Media (PTY) LTD has the discretion to update this Privacy Policy at any time. You acknowledge and agree that it is your responsibility to review this Privacy Policy periodically and become aware of modifications.
             </p>
-
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">7. Your Acceptance of these Terms</h3>
-            <p class="text-lg text-gray-700 leading-relaxed">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">7. Your Acceptance of these Terms</h3>
+<p class="text-lg text-gray-700 leading-relaxed">
                 By using this Website, you signify your acceptance of this Privacy Policy. Your continued use of the Website following the posting of changes to this Privacy Policy will be deemed your acceptance of those changes.
             </p>
-        </div>
-    </section>
-
-    
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2024 Crosshair Media. All rights reserved.</p>
-        </div>
-    </footer>
-    <footer class="bg-gradient-to-r from-gray-800 to-black text-gray-300">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Popular -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Popular</h3>
-                    <ul class="space-y-2">
-                        <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-gray-200 transition">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Community Engagement</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Data and Insights</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Out of Home (OOH)</a></li>
-                    </ul>
-                </div>
-    
-                <!-- About -->
-                <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Who we are</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Privacy Policy</a></li>
-                    </ul>
-                </div>
-    
-                <!-- Powered By -->
-                <div class="flex items-center">
-                    <img src="images/atlega-logo.png" alt="Atlega Tech Logo" class="h-10 mr-4">
-                    <div>
-                        <p class="text-sm text-gray-400">Powered by</p>
-                        <h3 class="text-lg font-bold text-white">Atlega Tech</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-gray-900 py-4">
-            <div class="container mx-auto text-center">
-                <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    
-        <!-- Scroll Progress Bar Script -->
-        <script>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-black text-white">
+<div class="container mx-auto px-6 py-8 text-center">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Popular -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Terms-and-Conditions.html">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Community-Engagement.html">Community Engagement</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Data-and-Insights.html">Data and Insights</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Out-of-Home.html">Out of Home (OOH)</a></li>
+</ul>
+</div>
+<!-- About -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="About.html">Who we are</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Privacy-Policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-gray-700 py-4">
+<div class="container mx-auto text-center">
+<p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<footer class="bg-gradient-to-r from-gray-800 to-black text-gray-300">
+<div class="container mx-auto px-6 py-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Popular -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">Popular</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="Terms-and-Conditions.html">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="#">Community Engagement</a></li>
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="#">Data and Insights</a></li>
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="#">Out of Home (OOH)</a></li>
+</ul>
+</div>
+<!-- About -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-white">About</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="#">Who we are</a></li>
+<li><a class="text-gray-400 hover:text-gray-200 transition" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Powered By -->
+<div class="flex items-center">
+<img alt="Atlega Tech Logo" class="h-10 mr-4" src="images/atlega-logo.png"/>
+<div>
+<p class="text-sm text-gray-400">Powered by</p>
+<h3 class="text-lg font-bold text-white">Atlega Tech</h3>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-900 py-4">
+<div class="container mx-auto text-center">
+<p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Scroll Progress Bar Script -->
+<script>
             window.addEventListener('scroll', function() {
                 const scrollProgress = document.getElementById('scroll-progress');
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -201,9 +469,30 @@
                 scrollProgress.style.width = scrollPercentage + '%';
             });
         </script>
-    </body>
-    </html>     
+
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
+
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
+</body>
+</html>     
 
 
 
->
+&gt;

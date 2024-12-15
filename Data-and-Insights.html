@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Data and Insights</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-/* Footer*/
+
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -19,6 +19,103 @@
             background: #EF4444;
             z-index: 100;
             transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .pattern-bg {
+            background-color: #fdfcff; /* Base background color */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px; /* Pattern size */
+            background-repeat: repeat;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pattern-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+            z-index: 2; /* Overlay the pattern */
+        }
+
+        .zoom-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoom-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/Data.jpg') no-repeat center center;
+            background-size: cover;
+            animation: zoom 10s infinite alternate;
+            z-index: -1; /* Ensure the background image is behind the content */
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
         }
 
         /* Card Hover Effect */
@@ -31,142 +128,153 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* Section Title Decoration */
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #EF4444;
+            margin: 0.5rem auto;
+        }
+
+        /* Icon Background Effect */
         .icon-container {
-            background-color: #f3f4f6;
-            padding: 1rem;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, #EF4444, #F87171);
+        }
+
+        .icon-container:hover {
+            background: linear-gradient(135deg, #F87171, #EF4444);
         }
     </style>
-</head>
- <!-- Scroll Progress Bar -->
- <div class="scroll-progress" id="scroll-progress"></div>
-<!-- Header -->
-<header class="fixed w-full bg-white shadow-md z-50">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="index.html">
-                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16" 
-                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
-                </a>
-            </div>
-            
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <!-- Dropdown Menu for 'What We Offer' -->
-                <div class="relative group">
-                    <a href="#services" class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
-                        <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Community Engagement</a>
-                        <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Data and Insights</a>
-                        <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
-                    </div>
-                </div>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.png">
 
-                <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
-                <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
-                <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
-                <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600">
-                    Contact Us
-                </a>
-              
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="bg-gray-100">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html"><img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'" src="images/logo.webp"/></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Dropdown Menu for 'What We Offer' -->
+                    <div class="relative group">
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all" href="#services">What We Offer</a>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
+                        </div>
+                    </div>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
+                    <a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
+                        Contact Us
+                    </a>
+                </div>
             </div>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative h-[100vh] flex items-center zoom-effect">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/40"></div>
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10 text-center text-white">
+            <!-- Heading with hover effect -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 hover:text-red-500 transition-all duration-300">
+                Data and Insights
+            </h1>
+            <!-- Subtitle with hover effect -->
+            <p class="text-xl md:text-2xl hover:text-red-500 transition-all duration-300">
+                Leverage the power of data for smarter decision-making.
+            </p>
         </div>
-    </nav>
-</header>
-<body>
-<!-- Hero Section -->
-<section class="relative h-[70vh] bg-[url('images/dna.webp')] bg-cover bg-center flex items-center">
-    <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
-    
-    <!-- Content -->
-    <div class="container mx-auto px-6 relative z-10 text-center text-white">
-        <!-- Heading with hover effect -->
-        <h1 class="text-5xl md:text-7xl font-bold mb-4 hover:text-red-500 transition-all duration-300">
-            Data and Insights
-        </h1>
-        <!-- Subtitle with hover effect -->
-        <p class="text-xl md:text-2xl hover:text-red-500 transition-all duration-300">
-            Leverage the power of data for smarter decision-making.
+    </section>
+    <!-- Main Content -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">What We Offer</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+            You have a marketing strategy for your brand; we have the know-how to engage the South African student youth market and the proprietary technology to extract valuable insights and make data-driven decisions.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+            Crosshair Media never assumes anything about the audience we know so well—the South African student youth market. This diverse, passionate, and unpredictable audience has ever-changing needs and represents a powerful sector of our society.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+            Today, they thrive on being woke, celebrating individualism and gender fluidity, being entrepreneurial, and feeling empowered and connected. They are climate-conscious, believe in sustainability, and openly discuss mental health. While we can’t predict tomorrow’s passion points, our data-driven insights ensure that your brand stays on track.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+            Our student-centric approach keeps your audience at the center of every business and branding discussion. We guarantee that the decisions we make and the strategies we design are informed by the latest research and evidence-based insights.
         </p>
     </div>
 </section>
-
-
-    <!-- Main Content -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">What We Offer</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                You have a marketing strategy for your brand; we have the know-how to engage the South African student youth market and the proprietary technology to extract valuable insights and make data-driven decisions.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                Crosshair Media never assumes anything about the audience we know so well—the South African student youth market. This diverse, passionate, and unpredictable audience has ever-changing needs and represents a powerful sector of our society.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                Today, they thrive on being woke, celebrating individualism and gender fluidity, being entrepreneurial, and feeling empowered and connected. They are climate-conscious, believe in sustainability, and openly discuss mental health. While we can’t predict tomorrow’s passion points, our data-driven insights ensure that your brand stays on track.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Our student-centric approach keeps your audience at the center of every business and branding discussion. We guarantee that the decisions
-                we make and the strategies we design are informed by the latest research and evidence-based insights.
+<!-- Highlights Section -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg class="h-8 w-8 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 17l-5-5m0 0l5-5m-5 5h12" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Real-Time Reporting</h3>
+            <p class="text-gray-600">
+                Access real-time dashboards and analytics for deeper insights and faster decision-making.
             </p>
         </div>
-    </section>
-
-    <!-- Highlights Section -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl text-center">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
-                        </svg>
-                    </div>
+        <!-- Card 2 -->
+        <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg class="h-8 w-8 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12h6m-3-3v6m6 0a9 9 0 11-18 0 0118 0 9 9 0 00-18 0 9 9 0 0018 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Real-Time Reporting</h3>
-                <p class="text-gray-600">
-                    Access real-time dashboards and analytics for deeper insights and faster decision-making.
-                </p>
             </div>
-    
-            <!-- Card 2 -->
-            <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl text-center">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-3-3v6m6 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Predictive Analytics</h3>
-                <p class="text-gray-600">
-                    Use advanced tools to forecast trends, analyze customer behavior, and prepare for the future.
-                </p>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl text-center">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c.65-.62 1-1.49 1-2.5C13 3.57 11.43 2 9.5 2S6 3.57 6 5.5c0 1.01.35 1.88 1 2.5M8 11c.65-.62 1-1.49 1-2.5C9 7.57 7.43 6 5.5 6S2 7.57 2 9.5c0 1.01.35 1.88 1 2.5m11 0c.65-.62 1-1.49 1-2.5 0-1.93-1.57-3.5-3.5-3.5S8 7.57 8 9.5c0 1.01.35 1.88 1 2.5m7 0h.01" />
-                        </svg>
-                    </div>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Campaign Optimization</h3>
-                <p class="text-gray-600">
-                    Refine your marketing strategies with data-driven recommendations to improve ROI and brand reach.
-                </p>
-            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Predictive Analytics</h3>
+            <p class="text-gray-600">
+                Use advanced tools to forecast trends, analyze customer behavior, and prepare for the future.
+            </p>
         </div>
-    </section>
-    
+        <!-- Card 3 -->
+        <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="icon-container w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+                    <svg class="h-8 w-8 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8c.65-.62 1-1.49 1-2.5C13 3.57 11.43 2 9.5 2S6 3.57 6 5.5c0 1.01.35 1.88 1 2.5M8 11c.65-.62 1-1.49 1-2.5C9 7.57 7.43 6 5.5 6S2 7.57 2 9.5c0 1.01.35 1.88 1 2.5m11 0c.65-.62 1-1.49 1-2.5 0-1.93-1.57-3.5-3.5-3.5S8 7.57 8 9.5c0 1.01.35 1.88 1 2.5m7 0h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Campaign Optimization</h3>
+            <p class="text-gray-600">
+                Refine your marketing strategies with data-driven recommendations to improve ROI and brand reach.
+            </p>
+        </div>
+    </div>
+</section>
 
     <!-- Call-to-Action -->
     <section class="py-12 bg-red-500 text-white">
@@ -175,69 +283,76 @@
             <p class="text-lg mb-6">
                 If you’ve got an idea or need insights to support your next campaign, contact us today. Let us back you up with the critical data you need to succeed.
             </p>
-            <a href="Contact-Us.html" class="bg-white text-red-500 font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition">
+            <a class="bg-white text-red-500 font-bold px-6 py-3 rounded-full hover:bg-gray-200 transition" href="Contact-Us.html">
                 Contact Us
             </a>
         </div>
     </section>
-    <footer class="bg-gradient-to-r from-gray-800 to-black text-gray-300">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Popular -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Popular</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
                     <ul class="space-y-2">
-                        <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-gray-200 transition">Terms & Conditions</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Terms-and-Conditions.html">Terms & Conditions</a></li>
                     </ul>
                 </div>
-    
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Community Engagement</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Data and Insights</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Out of Home (OOH)</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Community-Engagement.html">Community Engagement</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Data-and-Insights.html">Data and Insights</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Out-of-Home.html">Out of Home (OOH)</a></li>
                     </ul>
                 </div>
-    
                 <!-- About -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Who we are</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Privacy Policy</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="About.html">Who we are</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Privacy-Policy.html">Privacy Policy</a></li>
                     </ul>
-                </div>
-    
-                <!-- Powered By -->
-                <div class="flex items-center">
-                    <img src="images/atlega-logo.png" alt="Atlega Tech Logo" class="h-10 mr-4">
-                    <div>
-                        <p class="text-sm text-gray-400">Powered by</p>
-                        <h3 class="text-lg font-bold text-white">Atlega Tech</h3>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="bg-gray-900 py-4">
+        <div class="bg-gray-700 py-4">
             <div class="container mx-auto text-center">
-                <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
-    
-        <!-- Scroll Progress Bar Script -->
-        <script>
-            window.addEventListener('scroll', function() {
-                const scrollProgress = document.getElementById('scroll-progress');
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercentage = (scrollTop / scrollHeight) * 100;
-                scrollProgress.style.width = scrollPercentage + '%';
-            });
-        </script>
-    </body>
-    </html>     
+    <!-- Scroll Progress Bar Script -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+    </script>
 
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
+
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
+</body>
+</html>

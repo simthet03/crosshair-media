@@ -1,0 +1,182 @@
+[
+    {
+        "site_id": "CHM0001",
+        "name": "CHM0001 Queen Elizabeth Bridge Wrap",
+        "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Iconic Building Wrap",
+        "location": {
+            "coordinates": {
+                "latitude": -26.195999,
+                "longitude": 28.037148
+            }
+        }
+    },
+    {
+        "site_id": "CHM0017",
+        "name": "CHM0017 Glass Facade",
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Shop Front | Glass Facade",
+        "location": {
+            "coordinates": {
+                "latitude": -26.188163669483295,
+                "longitude": 28.035172882777548
+            }
+        }
+    },
+    {
+        "site_id": "CHM0018",
+        "name": "CHM0018 17 Melle Street (Street Furniture)",
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Furniture",
+        "location": {
+            "coordinates": {
+                "latitude": -26.188163669483295,
+                "longitude": 28.035172882777548
+            }
+        }
+    },
+    {
+        "site_id": "CHM0019",
+        "name": "CHM0019 17 Melle Street (Street Wallscape)",
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.188163669483295,
+                "longitude": 28.035172882777548
+            }
+        }
+    },
+    {
+        "site_id": "CHM0021",
+        "name": "CHM0021 16 Melle Street (Street Wallscape)",
+        "address": "16 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.188163669483295,
+                "longitude": 28.035172882777548
+            }
+        }
+    },
+    {
+        "site_id": "CHM0023",
+        "name": "CHM0023 90 De Korte Street (Shop Front | Glass Facade)",
+        "address": "90 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Shop Front | Glass Facade",
+        "location": {
+            "coordinates": {
+                "latitude": -26.1936289,
+                "longitude": 28.0364088
+            }
+        }
+    },
+    {
+        "site_id": "CHM0041",
+        "name": "CHM0041 Randlords Building Wrap",
+        "address": "41 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Iconic Building Wrap",
+        "location": {
+            "coordinates": {
+                "latitude": -26.193763,
+                "longitude": 28.031845
+            }
+        }
+    },
+    {
+        "site_id": "CHM0067",
+        "name": "CHM0067 South Point Student Res (East Facing)",
+        "address": "66 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Iconic Building Wrap",
+        "location": {
+            "coordinates": {
+                "latitude": -26.19388,
+                "longitude": 28.034034
+            }
+        }
+    },
+    {
+        "site_id": "CHM0068",
+        "name": "CHM0068 South Point Student Res (North & West Facing)",
+        "address": "66 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Iconic Building Wrap",
+        "location": {
+            "coordinates": {
+                "latitude": -26.19388,
+                "longitude": 28.034034
+            }
+        }
+    },
+    {
+        "site_id": "CHM0070",
+        "name": "CHM0070 1 Biccard Street",
+        "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.1944016,
+                "longitude": 28.03722195
+            }
+        }
+    },
+    {
+        "site_id": "CHM0086",
+        "name": "CHM0086 87 Juta Street (Street Wallscape)",
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194257458513174,
+                "longitude": 28.036762882916868
+            }
+        }
+    },
+    {
+        "site_id": "CHM0087",
+        "name": "CHM0087 Hop-On Hop-Off Tour Stop",
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Wall Sign",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194125,
+                "longitude": 28.03628
+            }
+        }
+    },
+    {
+        "site_id": "CHM0088",
+        "name": "CHM0088 87 Juta Street",
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194257458513174,
+                "longitude": 28.036762882916868
+            }
+        }
+    },
+    {
+        "site_id": "CHM0089",
+        "name": "CHM0089 87 Juta Street (Street Wallscape)",
+        "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Street Wallscape",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194257458513174,
+                "longitude": 28.036762882916868
+            }
+        }
+    },
+    {
+        "site_id": "CHM0091",
+        "name": "CHM0091 17 Melle Street",
+        "address": "17 Melle Street, Johannesburg, Gauteng",
+        "format": "Roadside Digital",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194167,
+                "longitude": 28.035895
+            }
+        }
+    }
+]

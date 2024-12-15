@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>About Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-         /* Footer*/
-         .scroll-progress {
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
@@ -21,6 +22,134 @@
             transition: width 0.2s ease;
         }
 
+        /* Navigation Links */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Contact Button */
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Pattern Background */
+        .pattern-bg {
+    background-color: #fdfcff; /* Base background color */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    background-repeat: repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.pattern-bg::after {
+    content: ''; /* Removed gradient */
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+
+        /* Hero Section Styles */
+        .zoom-effect {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .zoom-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/About1.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0;
+            transform: scale(1);
+            animation: fadeInZoom 5s ease-in-out forwards, zoomEffect 10s infinite alternate;
+            transition: opacity 0s ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes fadeInZoom {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Overlay for Hero Section */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
         /* Hover Effect for CEO Section */
         .ceo-card {
@@ -31,186 +160,262 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-    </style>
+     @keyframes fadeInImage {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .animate-fadeInImage {
+        animation: fadeInImage 1s ease-out forwards;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.png">
+
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
 </head>
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress" id="scroll-progress"></div>
-<!-- Header -->
-<header class="fixed w-full bg-white shadow-md z-50">
-    <nav class="container mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="index.html">
-                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16" 
-                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
-                </a>
-            </div>
-            
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <!-- Dropdown Menu for 'What We Offer' -->
-                <div class="relative group">
-                    <a href="#services" class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
-                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
-                        <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Community Engagement</a>
-                        <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Data and Insights</a>
-                        <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
-                    </div>
-                </div>
-
-                <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
-                <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
-                <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
-                <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600">
-                    Contact Us
-                </a>
-              
-            </div>
-        </div>
-    </nav>
-</header>
 <body class="bg-gray-50">
-    <!-- Hero Section -->
-    <section class="relative h-[50vh] bg-[url('images/aboutHero.webp')] bg-cover bg-center flex items-center">
-        <div class="w-full h-full bg-black bg-opacity-50"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center text-white">
-            <h1 class="text-4xl font-bold mb-4">About Us</h1>
-            <p class="text-lg">Get to know Crosshair Media and South Africa's student youth market like never before.</p>
-        </div>
-    </section>
-
-    <!-- Introduction Section -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Who We Are</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                Ask yourself this question, how much do you really know about South Africa’s student youth market?
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                At Crosshair Media we’ve made it our mission to get to know these young game changers, and we would be more than happy to make an introduction.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                As a leader in the influencer marketing category, we have built our reputation on creating relatable connections between brands and students. We have positioned ourselves to offer you unprecedented access to this youth market segment through our network of student accommodation providers. Together we can bring about relevant and authentic engagement, and build your brand by crafting meaningful stories.
-            </p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Our Story</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                We started as a niche business in Johannesburg, South Africa, and soon realized that we have a rare relationship with this unique, diverse, and active community of empowered individuals. We put a lot of effort into nurturing this relationship, expanding our reach throughout Mzansi, and evolving with this market to ensure we don’t lose sight of their specific needs.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                This relationship gives us one-of-a-kind access that allows us to carry out surveys and set up focus groups, and to generate analytics that provide the data and insights that you and your brand need to ensure you work together optimally.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Let’s Build Something Meaningful</h2>
-            <p class="text-lg text-gray-700 mb-6">
-                Speak to us if you’d like to originate relevant, highly targeted offers that drive awareness, consideration, acquisition, and ultimately brand advocacy. As an invested partner, we’ll be there to spark innovation and explore better product experiences with our student base.
-            </p>
-            <a href="Contact-Us.html" class="bg-red-500 text-white font-bold px-6 py-3 rounded-full hover:bg-red-600 transition">
-                Contact Us
-            </a>
-        </div>
-    </section>
-
-    <!-- CEO Section -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Meet Our Founder & CEO</h2>
-            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div class="md:w-1/3">
-                    <img src="images/owner.jpg" alt="Nqoba Koza" class="rounded-lg shadow-md w-full">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html"><img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='&lt;div class=\'h-12 w-48 bg-gray-300 rounded\'&gt;&lt;/div&gt;'" src="images/logo.webp"/></a>
                 </div>
-                <div class="md:w-2/3">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Nqoba Koza</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                        Nqoba Koza is the person everyone wants on their contact list because he is great at making connections that last. He knows just how powerful teamwork and collaboration can be, whether it's setting up multi-million rand sponsorship deals for brands like Standard Bank and Cricket South Africa, or managing professional athletes. He does it with heart and in the best interests of the people involved.
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        If you’re interested in learning more about what Crosshair Media can do for your brand, connect with Nqoba here.
-                    </p>
-                    <a href="Contact-Us.html" class="bg-red-500 text-white font-bold px-6 py-3 rounded-full hover:bg-red-600 transition mt-4 inline-block">
-                        Connect with Nqoba
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Dropdown Menu for 'What We Offer' -->
+                    <div class="relative group">
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all" href="#services">What We Offer</a>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
+                        </div>
+                    </div>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
+                    <a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
+                        Contact Us
                     </a>
                 </div>
             </div>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="zoom-effect flex items-center justify-center text-center text-white">
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+        <!-- Content -->
+        <div class="hero-content container mx-auto px-6">
+                  <!-- Heading with hover effect -->
+                  <h1 class="text-5xl md:text-6xl font-bold mb-4 hover:text-red-500 transition-all duration-300">
+                    About Us
+                </h1>
+                <!-- Subtitle with hover effect -->
+                <p class="text-lg md:text-xl hover:text-red-500 transition-all duration-300">
+                    Get to know Crosshair Media and South Africa'sstudent youth market like never before.
+                </p>
         </div>
     </section>
+    <!-- Introduction Section -->
+   <!-- Who We Are Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+        <!-- Heading -->
+        <h2 class="text-4xl font-bold text-red-600 mb-4 uppercase text-center tracking-wide">
+            Who We Are
+        </h2>
+        <div class="w-20 h-1 bg-red-500 mx-auto mb-8"></div>
+        <!-- Content -->
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- Text -->
+            <div class="md:w-3/5">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    Ask yourself this question, how much do you really know about South Africa’s student youth market?
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    At Crosshair Media, we’ve made it our mission to get to know these young game changers, and we would be more than happy to make an introduction.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    As a leader in the influencer marketing category, we have built our reputation on creating relatable connections between brands and students. We provide unparalleled access to this youth market segment, offering relevant and authentic engagement to build your brand with meaningful stories.
+                </p>
+            </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2024 Crosshair Media. All rights reserved.</p>
+            <!-- Image -->
+            <div class="md:w-2/5">
+                <img src="images/who-we-are.png" alt="Who We Are" class="rounded-lg shadow-2xl w-full opacity-0 transform scale-95 animate-fadeInImage">
+                <!-- Image -->
+            </div>
         </div>
-    </footer>
-    <footer class="bg-gradient-to-r from-gray-800 to-black text-gray-300">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    </div>
+</section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-6">
+        <!-- Heading -->
+        <h2 class="text-4xl font-bold text-gray-800 mb-4 uppercase text-center tracking-wide">
+            Our Story
+        </h2>
+        <div class="w-20 h-1 bg-red-500 mx-auto mb-8"></div>
+        <!-- Content -->
+        <div class="flex flex-col-reverse md:flex-row items-center gap-12">
+            <!-- Image -->
+            <div class="md:w-2/5">
+                <img src="images/our-story.png" alt="Our Story" class="rounded-lg shadow-2xl w-full opacity-0 transform scale-95 animate-fadeInImage">
+            </div>
+            <!-- Text -->
+            <div class="md:w-3/5">
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    We started as a niche business in Johannesburg, South Africa, and soon realized we had a rare relationship with this unique, diverse, and active community of empowered individuals.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    By nurturing this relationship, we expanded our reach throughout Mzansi and evolved with the market, ensuring we always meet its specific needs.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    This partnership gives us one-of-a-kind access to surveys, focus groups, and analytics, providing insights that ensure optimal collaboration for your brand.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Let’s Build Something Meaningful Section -->
+<section class="py-16 bg-red-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+        <!-- Heading -->
+        <h2 class="text-4xl font-bold mb-4 uppercase tracking-wide">
+            Let’s Build Something Meaningful
+        </h2>
+        <div class="w-20 h-1 bg-white mx-auto mb-8"></div>
+        <!-- Content -->
+        <p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+            Speak to us if you’d like to originate highly targeted offers that drive awareness, consideration, acquisition, and ultimately brand advocacy. As an invested partner, we’ll be there to spark innovation and explore better product experiences with our student base.
+        </p>
+        <!-- Button -->
+        <a href="Contact-Us.html"
+           class="inline-block bg-white text-red-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-200 transition transform hover:scale-105">
+            Contact Us
+        </a>
+    </div>
+</section>
+
+
+
+    <!-- CEO Section -->
+    <section class="py-12 bg-gray-50 pattern-bg">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+            <!-- Image -->
+            <div class="md:w-1/2">
+                <img alt="Nqoba Koza" class="rounded-lg shadow-md w-full" src="images/owner.jpg"/>
+            </div>
+            <!-- Text Content -->
+            <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Nqoba Koza</h3>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    Nqoba Koza is the person everyone wants on their contact list because he is great at making connections that last. He knows just how powerful teamwork and collaboration can be, whether it's setting up multi-million rand sponsorship deals for brands like Standard Bank and Cricket South Africa, or managing professional athletes. He does it with heart and in the best interests of the people involved.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                    If you’re interested in learning more about what Crosshair Media can do for your brand, connect with Nqoba here.
+                </p>
+                <a class="bg-red-500 text-white font-bold px-6 py-3 rounded-full hover:bg-red-600 transition inline-block" href="https://www.linkedin.com/in/nqobakoza/">
+                    Connect with Nqoba
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Popular -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Popular</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
                     <ul class="space-y-2">
-                        <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-gray-200 transition">Terms & Conditions</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Terms-and-Conditions.html">Terms & Conditions</a></li>
                     </ul>
                 </div>
-    
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Community Engagement</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Data and Insights</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Out of Home (OOH)</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Community-Engagement.html">Community Engagement</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Data-and-Insights.html">Data and Insights</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Out-of-Home.html">Out of Home (OOH)</a></li>
                     </ul>
                 </div>
-    
                 <!-- About -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Who we are</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Privacy Policy</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="About.html">Who we are</a></li>
+                        <li><a class="text-gray-400 hover:text-red-500 transition" href="Privacy-Policy.html">Privacy Policy</a></li>
                     </ul>
-                </div>
-    
-                <!-- Powered By -->
-                <div class="flex items-center">
-                    <img src="images/atlega-logo.png" alt="Atlega Tech Logo" class="h-10 mr-4">
-                    <div>
-                        <p class="text-sm text-gray-400">Powered by</p>
-                        <h3 class="text-lg font-bold text-white">Atlega Tech</h3>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="bg-gray-900 py-4">
+        <div class="bg-gray-700 py-4">
             <div class="container mx-auto text-center">
-                <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
-    
-        <!-- Scroll Progress Bar Script -->
-        <script>
-            window.addEventListener('scroll', function() {
-                const scrollProgress = document.getElementById('scroll-progress');
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercentage = (scrollTop / scrollHeight) * 100;
-                scrollProgress.style.width = scrollPercentage + '%';
-            });
-        </script>
-    </body>
-    </html>     
+    <!-- Scroll Progress Bar Script -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+    </script>
 
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
 
-
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
+</body>
+</html>

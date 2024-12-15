@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Map View - Crosshair Media</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #map {
+            height: calc(100vh - 160px); /* Adjust based on header and footer height */
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Adjust based on header height */
+        }
+
+        .popup-content h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .popup-content p {
+            margin: 0.5em 0 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .leaflet-control-attribution {
+            font-size: 12px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay-content {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .overlay-content h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .overlay-content p {
+            margin: 0.5em 0 0;
+            font-size: 1em;
+            color: #666;
+        }
+
+        .overlay-content .close-btn {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .overlay-content .close-btn button {
+            background-color: #e53e3e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .overlay-content .close-btn button:hover {
+            background-color: #c53030;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding-top: 20px; /* Adjust based on header height */
+            position: sticky;
+            top: 80px; /* Adjust based on header height */
+            height: calc(100vh - 160px); /* Adjust based on header and footer height */
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            padding: 10px;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .sidebar .tile {
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .sidebar .tile:hover {
+            background-color: #f1f5f9;
+        }
+
+        .content {
+            margin-left: 260px; /* Adjust based on sidebar width */
+            flex: 1;
+            padding-top: 20px; /* Adjust based on header height */
+        }
+
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="images/favicon.ico" rel="shortcut icon"/>
+<style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+        /* Use consistent font across the entire site */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+    </style><style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fadeIn {
+        animation: fadeIn 1.5s ease-out forwards;
+    }
+    .pattern-bg {
+        background-color: #fdfcff; /* Base background color */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 60px 60px; /* Pattern size */
+        background-repeat: repeat;
+        position: relative;
+        z-index: 1;
+    }
+
+    .pattern-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+        z-index: 2; /* Overlay the pattern */
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.png">
+
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="fixed w-full bg-white shadow-md z-50">
+<nav class="container mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<a href="index.html"><img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='&lt;div class=\'h-12 w-48 bg-gray-300 rounded\'&gt;&lt;/div&gt;'" src="images/logo.webp"/></a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<!-- Dropdown Menu for 'What We Offer' -->
+<div class="relative group">
+<a class="nav-link text-gray-800 hover:text-red-500 transition-all" href="#services">What We Offer</a>
+<div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
+<a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
+</div>
+</div>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
+<a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
+<a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
+                        Contact Us
+                    </a>
+</div>
+</div>
+</nav>
+</header>
+<!-- Add Spacer for Fixed Header -->
+<div class="h-20"></div>
+<!-- Main Content -->
+<div class="main-content">
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>Sites</h2>
+<div id="site-list"></div>
+</div>
+<!-- Map Section -->
+<div class="content container mx-auto px-6 py-8">
+<h1 class="text-3xl font-bold text-gray-800 mb-4">Interactive Map of Sites</h1>
+<p class="text-lg text-gray-600 mb-6">Explore all our available sites using the interactive map below. Click on any marker to see more details about the site.</p>
+<div id="map"></div>
+</div>
+</div>
+<!-- Overlay for Site Details -->
+<div class="overlay" id="overlay">
+<div class="overlay-content">
+<h2 id="overlay-title">Site Details</h2>
+<p id="overlay-details"></p>
+<div class="close-btn">
+<button onclick="closeOverlay()">Close</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-black text-white">
+<div class="container mx-auto px-6 py-8 text-center">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Popular -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Terms-and-Conditions.html">Terms &amp; Conditions</a></li>
+</ul>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Community-Engagement.html">Community Engagement</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Data-and-Insights.html">Data and Insights</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Out-of-Home.html">Out of Home (OOH)</a></li>
+</ul>
+</div>
+<!-- About -->
+<div>
+<h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-red-500 transition" href="About.html">Who we are</a></li>
+<li><a class="text-gray-400 hover:text-red-500 transition" href="Privacy-Policy.html">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-gray-700 py-4">
+<div class="container mx-auto text-center">
+<p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+        // Initialize the map
+        const map = L.map('map').setView([-26.2041, 28.0473], 11); // Center on Johannesburg, South Africa
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Create a marker cluster group
+        const markers = L.markerClusterGroup();
+
+        // Fetch and add site markers
+        async function loadMarkers() {
+            try {
+                const response = await fetch('/data/sites.json'); // Path to your sites JSON
+                const sites = await response.json();
+
+                sites.forEach(site => {
+                    if (site.location && site.location.coordinates) {
+                        const { latitude, longitude } = site.location.coordinates;
+                        const marker = L.marker([latitude, longitude]);
+
+                        // Add popup
+                        const popupContent = `
+                            <div class="popup-content">
+                                <h3>${site.name || 'Unnamed Site'}</h3>
+                                <p><strong>Address:</strong> ${site.address || 'N/A'}</p>
+                                <p><strong>Format:</strong> ${site.format || 'N/A'}</p>
+                                <button onclick="showOverlay('${site.site_id}', '${site.name}', '${site.address}', '${site.format}')">View Details</button>
+                            </div>
+                        `;
+                        marker.bindPopup(popupContent);
+                        markers.addLayer(marker);
+
+                        // Add to sidebar
+                        const tile = document.createElement('div');
+                        tile.classList.add('tile');
+                        tile.textContent = site.name || 'Unnamed Site';
+                        tile.addEventListener('click', () => {
+                            map.setView([latitude, longitude], 16);
+                            marker.openPopup();
+                        });
+                        document.getElementById('site-list').appendChild(tile);
+                    }
+                });
+
+                map.addLayer(markers);
+            } catch (error) {
+                console.error('Error loading markers:', error);
+            }
+        }
+
+        function showOverlay(site_id, name, address, format) {
+            const overlay = document.getElementById('overlay');
+            const overlayTitle = document.getElementById('overlay-title');
+            const overlayDetails = document.getElementById('overlay-details');
+
+            overlayTitle.textContent = name || 'Unnamed Site';
+            overlayDetails.innerHTML = `
+                <p><strong>Site ID:</strong> ${site_id || 'N/A'}</p>
+                <p><strong>Address:</strong> ${address || 'N/A'}</p>
+                <p><strong>Format:</strong> ${format || 'N/A'}</p>
+            `;
+            overlay.style.display = 'flex';
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+
+        loadMarkers();
+    </script>
+
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
+
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
+</body>
+</html>

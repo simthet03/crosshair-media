@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Site Gallery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -35,122 +35,215 @@
             width: 90%;
             max-width: 600px;
         }
-    </style>
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #EF4444;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #EF4444;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .contact-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .contact-btn:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .pattern-bg {
+            background-color: #fdfcff; /* Base background color */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px; /* Pattern size */
+            background-repeat: repeat;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pattern-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+            z-index: 2; /* Overlay the pattern */
+        }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.png">
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="fixed top-0 w-full bg-white shadow-md z-50">
+    <header class="fixed w-full bg-white shadow-md z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16" 
-                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
+                    <a href="index.html">
+                        <img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'" src="images/logo.webp"/>
+                    </a>
                 </div>
-    
                 <div class="hidden md:flex items-center space-x-8">
                     <!-- Dropdown Menu for 'What We Offer' -->
                     <div class="relative group">
-                        <a href="#services" class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all" href="#services">What We Offer</a>
                         <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
-                            <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Community Engagement</a>
-                            <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Data and Insights</a>
-                            <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
+                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
                         </div>
                     </div>
-    
-                    <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
-                    <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
-                    <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
-                    <a href="Media-Assets.html" class="nav-link text-gray-800 hover:text-red-500">Media Assets</a>
-                    <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600">
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
+                    <a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
+                    <a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
                         Contact Us
                     </a>
                 </div>
             </div>
         </nav>
     </header>
-    
     <!-- Add Spacer for Fixed Header -->
     <div class="h-20"></div>
     <div class="h-20"></div>
     <!-- Search Bar -->
     <div class="container mx-auto px-6 py-4">
-        <input 
-            type="text" 
-            id="searchBar" 
-            placeholder="Search by site name or location..." 
-            class="w-full p-2 border border-gray-300 rounded-md shadow-sm"
-            oninput="filterCards()"
-        >
+        <input class="w-full p-2 border border-gray-300 rounded-md shadow-sm" id="searchBar" oninput="filterCards()" placeholder="Search by site name or location..." type="text"/>
     </div>
-    
-    
-    
+<!-- Button to Switch to Map View -->
+<div class="container mx-auto px-6 py-4 text-center">
+    <a class="bg-blue-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-blue-600" href="Map-View.html">
+        Switch to Map View
+    </a>
+
     <!-- Gallery Section -->
     <section class="py-10">
         <div class="container mx-auto px-6">
-            <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery">
                 <!-- Cards will be dynamically populated here -->
             </div>
         </div>
     </section>
-
+    <!-- Button to Switch to Map View -->
+    <div class="container mx-auto px-6 py-4 text-center">
+        <a class="bg-blue-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-blue-600" href="Map-View.html">
+            Switch to Map View
+        </a>
+    </div>
     <!-- Modal -->
-    <div id="modal" class="modal">
+    <div class="modal" id="modal">
         <div class="modal-content">
-            <button onclick="closeModal()" class="text-red-500 font-bold text-xl float-right">&times;</button>
+            <button class="text-red-500 font-bold text-xl float-right" onclick="closeModal()">×</button>
             <div id="modal-body"></div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-gray-800 to-black text-gray-300">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-black text-white">
+        <!-- Main Footer Content -->
+        <div class="w-full px-6 py-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Popular -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Popular</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
                     <ul class="space-y-2">
-                        <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-gray-200 transition">Terms & Conditions</a></li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="Terms-and-Conditions.html">Terms & Conditions</a>
+                        </li>
                     </ul>
                 </div>
-
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Community Engagement</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Data and Insights</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Out of Home (OOH)</a></li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="Community-Engagement.html">Community Engagement</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="Data-and-Insights.html">Data and Insights</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="Out-of-Home.html">Out of Home (OOH)</a>
+                        </li>
                     </ul>
                 </div>
-
                 <!-- About -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4 text-white">About</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Who we are</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-gray-200 transition">Privacy Policy</a></li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="About.html">Who we are</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-400 hover:text-red-500 transition" href="Privacy-Policy.html">Privacy Policy</a>
+                        </li>
                     </ul>
-                </div>
-
-                <!-- Powered By -->
-                <div class="flex items-center powered-by">
-                    <img src="images/atlega-logo.png" alt="Atlega Tech Logo" class="h-10 mr-4">
-                    <div>
-                        <p class="text-sm text-gray-400">Powered by</p>
-                        <h3 class="text-lg font-bold text-white">Atlega Tech</h3>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="bg-gray-900 py-4">
-            <div class="container mx-auto text-center">
-                <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
+        <!-- Sub-footer -->
+        <div class="w-full bg-gray-700 py-4">
+            <div class="w-full text-center">
+                <p class="text-gray-400 text-sm">© 2024 Crosshair Media. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
+    
     <script>
         // Function to load JSON file
         async function fetchJSON(file) {
@@ -164,32 +257,31 @@
 
         // Function to create a card
         function createCard(site) {
-    return `
-        <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" data-name="${site.name.toLowerCase()}" data-location="${site.location.address.toLowerCase()}" onclick="openModal('${site.site_id}')">
-            <img src="data/images/${site.site_id}-image1.jpg" alt="Site Image" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold text-gray-800">${site.site_id}</h2>
-                <p class="text-gray-600">${site.name}</p>
-                <p class="text-gray-600 text-sm">Location: ${site.location.address}</p>
-                <p class="text-gray-600 text-sm">Size: ${site.displays[0]?.size || "N/A"}</p>
-                <p class="text-gray-600 text-sm">Type: ${site.format}</p>
-                <p class="text-gray-600 text-sm">Availability: ${site.availability}</p>
-            </div>
-            <div class="flex justify-around p-4 border-t">
-                <a href="https://maps.google.com?q=${site.location.coordinates.latitude},${site.location.coordinates.longitude}" target="_blank" class="icon">
-                    <i class="fas fa-map-marker-alt text-gray-600 text-xl hover:text-blue-500"></i>
-                </a>
-                <a href="Gallery.html?site_id=${site.site_id}" target="_blank" class="icon">
+            return `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" data-name="${site.name.toLowerCase()}" data-location="${site.location.address.toLowerCase()}" onclick="openModal('${site.site_id}')">
+                    <img src="data/images/${site.site_id}-image1.jpg" alt="Site Image" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">${site.site_id}</h2>
+                        <p class="text-gray-600">${site.name}</p>
+                        <p class="text-gray-600 text-sm">Location: ${site.location.address}</p>
+                        <p class="text-gray-600 text-sm">Size: ${site.displays[0]?.size || "N/A"}</p>
+                        <p class="text-gray-600 text-sm">Type: ${site.format}</p>
+                        <p class="text-gray-600 text-sm">Availability: ${site.availability}</p>
+                    </div>
+                    <div class="flex justify-around p-4 border-t">
+                        <a href="https://maps.google.com?q=${site.location.coordinates.latitude},${site.location.coordinates.longitude}" target="_blank" class="icon">
+                            <i class="fas fa-map-marker-alt text-gray-600 text-xl hover:text-blue-500"></i>
+                        </a>
+                        <a href="Gallery.html?site_id=${site.site_id}" target="_blank" class="icon">
                             <i class="fas fa-images text-gray-600 text-xl hover:text-blue-500"></i>
-                </a>
-                <a href="https://earth.google.com/web/@${site.location.coordinates.latitude},${site.location.coordinates.longitude},100a,35d,1y,0h" target="_blank" class="icon">
-                    <i class="fas fa-globe text-gray-600 text-xl hover:text-blue-500"></i>
-                </a>
-            </div>
-        </div>
-    `;
-}
-
+                        </a>
+                        <a href="https://earth.google.com/web/@${site.location.coordinates.latitude},${site.location.coordinates.longitude},100a,35d,1y,0h" target="_blank" class="icon">
+                            <i class="fas fa-globe text-gray-600 text-xl hover:text-blue-500"></i>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
 
         // Function to open the modal
         function openModal(siteId) {
@@ -238,7 +330,7 @@
             const gallery = document.getElementById("gallery");
             const files = [
                 "data/CHM0001.json",
-                "data/CHM0017_glass_facade.json",
+                "data/CHM0017.json",
                 "data/CHM0018.json",
                 "data/CHM0021.json",
                 "data/CHM0023.json",
@@ -264,5 +356,26 @@
         // Load the gallery on page load
         loadGallery();
     </script>
+
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
+
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crosshair Media</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/src/styles.css"> <!-- Link to your external CSS file -->
     <style>
         /* Use consistent font across the entire site */
         body {
@@ -58,11 +59,144 @@
         .contact-btn:active {
             transform: translateY(-1px);
         }
+
+        /* Hero Section with Zoom Effect */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            text-align: left;
+            color: white;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 10s linear, opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .hero-background.active {
+            opacity: 1;
+        }
+
+        .hero-background.zoom {
+            transform: scale(1.1);
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-indicators button.active {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .carousel-indicators button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Carousel Controls */
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .carousel-control {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Tailwind CSS Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .pattern-bg {
+            background-color: #fdfcff; /* Base background color */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px; /* Pattern size */
+            background-repeat: repeat;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pattern-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
+            z-index: 2; /* Overlay the pattern */
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-<link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+<style>
+    /* Slick Page Transitions */
+    body {
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out;
+    }
+    body.loaded {
+        opacity: 1;
+    }
+</style>
 </head>
 <body class="bg-white">
     <!-- Scroll Progress Bar -->
@@ -73,10 +207,10 @@
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16" 
+                    <img src="images/logo.webp" alt="Crosshair Media" class="h-16"
                          onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-48 bg-gray-300 rounded\'></div>'">
                 </div>
-                
+
                 <div class="hidden md:flex items-center space-x-8">
                     <!-- Dropdown Menu for 'What We Offer' -->
                     <div class="relative group">
@@ -87,7 +221,7 @@
                             <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500">Out of Home (OOH)</a>
                         </div>
                     </div>
-    
+
                     <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500">Why Choose Us</a>
                     <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
                     <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500">Clients/Partners</a>
@@ -99,187 +233,165 @@
             </div>
         </nav>
     </header>
-    <!-- Hero Section -->
-<section class="relative h-[70vh] flex items-center">
-    <div class="absolute inset-0 z-0">
-        <!-- Adjusting gradient overlay to reduce opacity and enhance visibility -->
-        <div class="w-full h-full bg-[url('images/hero.webp')] bg-cover bg-center" 
-             onerror="this.classList.add('bg-gray-200')">
-            <div class="w-full h-full bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+    <!-- Hero Section with Zoom Effect and Carousel -->
+    <section class="hero-section" id="hero">
+        <div class="hero-background active zoom" id="hero-background-0" style="background-image: url('images/index-bg.png');"></div>
+        <div class="hero-background" id="hero-background-1" style="background-image: url('images/Hero01.jpg');"></div>
+        <div class="hero-background" id="hero-background-2" style="background-image: url('images/Hero02.jpg');"></div>
+        <div class="hero-background" id="hero-background-3" style="background-image: url('images/Hero03.jpg');"></div>
+        <div class="hero-background" id="hero-background-4" style="background-image: url('images/Hero04.jpg');"></div>
+        <div class="hero-background" id="hero-background-5" style="background-image: url('images/Hero05.jpg');"></div>
+        <div class="hero-content container mx-auto px-6">
+            <!-- Fade-in effect for the heading -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 max-w-4xl opacity-0 animate-fadeIn hover:text-red-500 transition-all duration-500">
+                Creating Connections Between Your Brand and the Youth Market
+            </h1>
+            <!-- Fade-in effect for the paragraph -->
+            <p class="text-xl md:text-2xl mb-8 opacity-0 animate-fadeIn hover:text-red-500 transition-all duration-500">
+                Transform your brand's presence in the digital age
+            </p>
+            <a href="#services" class="contact-btn inline-block bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-600">
+                Discover Our Services
+            </a>
         </div>
-    </div>
-    
-    <div class="container mx-auto px-6 relative z-10 text-white">
-        <!-- Fade-in effect for the heading -->
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 max-w-4xl opacity-0 animate-fadeIn hover:text-red-500 transition-all duration-500">
-            Creating Connections Between Your Brand and the Youth Market
-        </h1>
-        <!-- Fade-in effect for the paragraph -->
-        <p class="text-xl md:text-2xl mb-8 opacity-0 animate-fadeIn hover:text-red-500 transition-all duration-500">
-            Transform your brand's presence in the digital age
-        </p>
-        <a href="#services" class="contact-btn inline-block bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-600">
-            Discover Our Services
-        </a>
-    </div>
-</section>
-
-
-<!-- Tailwind CSS Animations -->
-<style>
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    .animate-fadeIn {
-        animation: fadeIn 1.5s ease-out forwards;
-    }
-    .pattern-bg {
-        background-color: #fdfcff; /* Base background color */
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff0000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        background-size: 60px 60px; /* Pattern size */
-        background-repeat: repeat;
-        position: relative;
-        z-index: 1;
-    }
-
-    .pattern-bg::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 252, 255, 0) 100%);
-        z-index: 2; /* Overlay the pattern */
-    }
-</style>
+        <div class="carousel-indicators" id="carousel-indicators">
+            <button onclick="showImage(0)" class="active"></button>
+            <button onclick="showImage(1)"></button>
+            <button onclick="showImage(2)"></button>
+            <button onclick="showImage(3)"></button>
+            <button onclick="showImage(4)"></button>
+            <button onclick="showImage(5)"></button>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-control prev" onclick="prevImage()" aria-hidden="true">
+                <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control next" onclick="nextImage()" aria-hidden="true">
+                <span class="sr-only">Next</span>
+            </button>
+        </div>
+    </section>
 
     <!-- What We Do Section -->
-<section id="what-we-do" class="py-20 relative bg-white">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('images/pattern.PNG');"></div>
-    
-    <!-- Content -->
-    <div class="container mx-auto px-6 relative z-10">
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 hover:text-red-500 transition-all duration-300">
-                What We Do
-            </h2>
-            <p class="text-gray-700 text-lg mt-4">
-                Explore our specialized services tailored to engage and empower the youth market.
-            </p>
-        </div>
+    <section id="what-we-do" class="py-20 relative bg-white">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('images/pattern.PNG');"></div>
 
-        <!-- Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Card 1 -->
-            <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
-                <h3 class="text-xl font-bold mb-2">Out-of-Home Advertising</h3>
-                <p class="text-sm text-gray-600 group-hover:text-white mt-2">
-                    We provide access to traditional, digital, and programmatic opportunities that target professionals, commuters, and students.
+        <!-- Content -->
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 hover:text-red-500 transition-all duration-300">
+                    What We Do
+                </h2>
+                <p class="text-gray-700 text-lg mt-4">
+                    Explore our specialized services tailored to engage and empower the youth market.
                 </p>
             </div>
 
-            <!-- Card 2 -->
-            <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
-                <h3 class="text-xl font-bold mb-2">Youth Market Insights</h3>
-                <p class="text-sm text-gray-600 group-hover:text-white mt-2">
-                    We use insights-driven strategies to connect brands with the youth market, ensuring impactful engagement.
-                </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
-                <h3 class="text-xl font-bold mb-2">Research & Analytics</h3>
-                <p class="text-sm text-gray-600 group-hover:text-white mt-2">
-                    We deliver research and analytics to help monitor the effectiveness of your campaigns and make informed decisions.
-                </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
-                <h3 class="text-xl font-bold mb-2">Authentic Messaging</h3>
-                <p class="text-sm text-gray-600 group-hover:text-white mt-2">
-                    We help brands amplify their voice with authentic, user-generated content that resonates with their audience.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Strategic Advantage Section -->
-<section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <!-- Section Header -->
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Our Strategic Advantage</h2>
-        
-        <!-- Card Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Card 1 -->
-            <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
-                <div class="relative">
-                    <img src="images/ooh.jpg" alt="Out Of Home" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-                </div>
-                <div class="p-4 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Out Of Home (OOH)</h3>
-                    <p class="text-sm text-gray-600">
-                        Specializing in targeted advertising to connect with commuters, professionals, and the youth market.
+            <!-- Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-2">Out-of-Home Advertising</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-white mt-2">
+                        We provide access to traditional, digital, and programmatic opportunities that target professionals, commuters, and students.
                     </p>
                 </div>
-            </div>
 
-            <!-- Card 2 -->
-            <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
-                <div class="relative">
-                    <img src="images/ce.jpg" alt="Community Engagement" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-                </div>
-                <div class="p-4 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Engagement</h3>
-                    <p class="text-sm text-gray-600">
-                        Facilitating meaningful connections between brands and communities through impactful initiatives.
+                <!-- Card 2 -->
+                <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-2">Youth Market Insights</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-white mt-2">
+                        We use insights-driven strategies to connect brands with the youth market, ensuring impactful engagement.
                     </p>
                 </div>
-            </div>
 
-            <!-- Card 3 -->
-            <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
-                <div class="relative">
-                    <img src="images/ria.png" alt="Research, Insights & Analytics" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-                </div>
-                <div class="p-4 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Research & Analytics</h3>
-                    <p class="text-sm text-gray-600">
-                        Data-driven insights that empower decision-making and maximize the effectiveness of campaigns.
+                <!-- Card 3 -->
+                <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-2">Research & Analytics</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-white mt-2">
+                        We deliver research and analytics to help monitor the effectiveness of your campaigns and make informed decisions.
                     </p>
                 </div>
-            </div>
 
-            <!-- Card 4 -->
-            <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
-                <div class="relative">
-                    <img src="images/au.jpg" alt="About Us" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
-                </div>
-                <div class="p-4 text-center">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Authentic Messaging</h3>
-                    <p class="text-sm text-gray-600">
-                        Crafting authentic messages that resonate deeply with audiences and amplify brand voices.
+                <!-- Card 4 -->
+                <div class="group border rounded-lg shadow-md p-6 bg-white hover:bg-red-500 hover:text-white transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-2">Authentic Messaging</h3>
+                    <p class="text-sm text-gray-600 group-hover:text-white mt-2">
+                        We help brands amplify their voice with authentic, user-generated content that resonates with their audience.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Strategic Advantage Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <!-- Section Header -->
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900">Our Strategic Advantage</h2>
+
+            <!-- Card Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
+                    <div class="relative">
+                        <img src="images/ooh.jpg" alt="Out Of Home" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Out Of Home (OOH)</h3>
+                        <p class="text-sm text-gray-600">
+                            Specializing in targeted advertising to connect with commuters, professionals, and the youth market.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
+                    <div class="relative">
+                        <img src="images/ce.jpg" alt="Community Engagement" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Community Engagement</h3>
+                        <p class="text-sm text-gray-600">
+                            Facilitating meaningful connections between brands and communities through impactful initiatives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
+                    <div class="relative">
+                        <img src="images/ria.png" alt="Research, Insights & Analytics" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Research & Analytics</h3>
+                        <p class="text-sm text-gray-600">
+                            Data-driven insights that empower decision-making and maximize the effectiveness of campaigns.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group overflow-hidden rounded-lg shadow-lg bg-white">
+                    <div class="relative">
+                        <img src="images/au.jpg" alt="About Us" class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Authentic Messaging</h3>
+                        <p class="text-sm text-gray-600">
+                            Crafting authentic messages that resonate deeply with audiences and amplify brand voices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Scroll to Top Button -->
     <button id="scrollToTopBtn" class="hidden fixed bottom-6 right-6 bg-red-500 text-white p-3 rounded-full shadow-lg hover:bg-red-600 transition">
@@ -287,46 +399,43 @@
     </button>
 
     <!-- Footer -->
-    <!-- Footer -->
-<!-- Footer -->
-<!-- Footer -->
-<footer class="bg-black text-white">
-    <div class="container mx-auto px-6 py-8 text-center">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Popular -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
-                <ul class="space-y-2">
-                    <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-red-500 transition">Terms & Conditions</a></li>
-                </ul>
-            </div>
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Popular -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Popular</h3>
+                    <ul class="space-y-2">
+                        <li><a href="Terms-and-Conditions.html" class="text-gray-400 hover:text-red-500 transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="Community-Engagement.html" class="text-gray-400 hover:text-red-500 transition">Community Engagement</a></li>
-                    <li><a href="Data-and-Insights.html" class="text-gray-400 hover:text-red-500 transition">Data and Insights</a></li>
-                    <li><a href="Out-of-Home.html" class="text-gray-400 hover:text-red-500 transition">Out of Home (OOH)</a></li>
-                </ul>
-            </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="Community-Engagement.html" class="text-gray-400 hover:text-red-500 transition">Community Engagement</a></li>
+                        <li><a href="Data-and-Insights.html" class="text-gray-400 hover:text-red-500 transition">Data and Insights</a></li>
+                        <li><a href="Out-of-Home.html" class="text-gray-400 hover:text-red-500 transition">Out of Home (OOH)</a></li>
+                    </ul>
+                </div>
 
-            <!-- About -->
-            <div>
-                <h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
-                <ul class="space-y-2">
-                    <li><a href="About.html" class="text-gray-400 hover:text-red-500 transition">Who we are</a></li>
-                    <li><a href="Privacy-Policy.html" class="text-gray-400 hover:text-red-500 transition">Privacy Policy</a></li>
-                </ul>
+                <!-- About -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-red-500">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="About.html" class="text-gray-400 hover:text-red-500 transition">Who we are</a></li>
+                        <li><a href="Privacy-Policy.html" class="text-gray-400 hover:text-red-500 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="bg-gray-700 py-4">
-        <div class="container mx-auto text-center">
-            <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
+        <div class="bg-gray-700 py-4">
+            <div class="container mx-auto text-center">
+                <p class="text-gray-400 text-sm">&copy; 2024 Crosshair Media. All rights reserved.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- Scripts -->
     <script>
@@ -354,6 +463,85 @@
                 behavior: 'smooth'
             });
         });
+
+        // Image Carousel for Hero Section
+        const images = [
+            'images/hero.webp',
+            'images/Hero01.jpg',
+            'images/Hero02.jpg',
+            'images/Hero03.jpg',
+            'images/Hero04.jpg',
+            'images/Hero05.jpg'
+        ];
+        let currentImageIndex = 0;
+
+        function preloadImages(images) {
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        function showImage(index) {
+            const heroBackgrounds = document.querySelectorAll('.hero-background');
+            const indicators = document.querySelectorAll('.carousel-indicators button');
+            heroBackgrounds.forEach((bg, i) => {
+                bg.classList.remove('active');
+                if (i === index) {
+                    bg.classList.add('active');
+                    bg.classList.remove('zoom');
+                    setTimeout(() => {
+                        bg.classList.add('zoom');
+                    }, 50);
+                }
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.remove('active');
+                if (i === index) {
+                    indicator.classList.add('active');
+                }
+            });
+            currentImageIndex = index;
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+
+        function switchImage() {
+            nextImage();
+        }
+
+        preloadImages(images);
+        setInterval(switchImage, 5000); // Switch image every 5 seconds
     </script>
+    <script src="transitions.js"></script>
+
+<script>
+    // Fade-in Effect on Page Load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add('loaded');
+    });
+
+    // Fade-out Effect Before Navigating Away
+    document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const target = e.currentTarget;
+            if (target.href && !target.href.startsWith("#") && !target.target) {
+                e.preventDefault();
+                document.body.classList.remove('loaded');
+                setTimeout(() => {
+                    window.location.href = target.href;
+                }, 800); // Match the transition duration
+            }
+        });
+    });
+</script>
 </body>
 </html>
