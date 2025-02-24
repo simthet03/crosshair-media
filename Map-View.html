@@ -525,7 +525,7 @@
         // Fetch and add site markers
         async function loadMarkers() {
             try {
-                const response = await fetch('./data/sites.json'); // Path to your sites JSON
+                const response = await fetch('data/sites.json'); // Path to your sites JSON
                 const sites = await response.json();
 
                 sites.forEach(site => {
