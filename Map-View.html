@@ -550,7 +550,8 @@
                                 <h3>${site.name || 'Unnamed Site'}</h3>
                                 <p><strong>Address:</strong> ${site.address || 'N/A'}</p>
                                 <p><strong>Format:</strong> ${site.format || 'N/A'}</p>
-                                <button onclick="showOverlay('${site.site_id}', '${site.name}', '${site.address}', '${site.format}')">View Details</button>
+                                <p><strong>Coordinates:</strong> ${latitude}, ${longitude}</p>
+                                <button onclick="showOverlay('${site.site_id}', '${site.name}', '${site.address}', '${site.format}',)">View Details</button>
                             </div>
                         `;
                         marker.bindPopup(popupContent);
@@ -573,19 +574,34 @@
                 console.error('Error loading markers:', error);
             }
         }
+        async function showOverlay(site_id, name, address, format) {
+            try {
+            const response = await fetch(`data/sites.json`); // Path to your sites JSON
+            const sites = await response.json();
+            const site = sites.find(s => s.site_id === site_id);
 
-        function showOverlay(site_id, name, address, format) {
-            const overlay = document.getElementById('overlay');
-            const overlayTitle = document.getElementById('overlay-title');
-            const overlayDetails = document.getElementById('overlay-details');
+            if (site && site.location && site.location.coordinates) {
+                const longitude = site.location.coordinates.longitude.toString();
+                const latitude = site.location.coordinates.latitude.toString();
 
-            overlayTitle.textContent = name || 'Unnamed Site';
-            overlayDetails.innerHTML = `
+                const overlay = document.getElementById('overlay');
+                const overlayTitle = document.getElementById('overlay-title');
+                const overlayDetails = document.getElementById('overlay-details');
+
+                overlayTitle.textContent = name || 'Unnamed Site';
+                overlayDetails.innerHTML = `
                 <p><strong>Site ID:</strong> ${site_id || 'N/A'}</p>
                 <p><strong>Address:</strong> ${address || 'N/A'}</p>
                 <p><strong>Format:</strong> ${format || 'N/A'}</p>
-            `;
-            overlay.style.display = 'flex';
+                <p><strong>Coordinates:</strong> ${latitude}, ${longitude}</p>
+                `;
+                overlay.style.display = 'flex';
+            } else {
+                console.error('Site not found or missing coordinates');
+            }
+            } catch (error) {
+            console.error('Error loading site details:', error);
+            }
         }
 
         function closeOverlay() {

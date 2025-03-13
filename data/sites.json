@@ -168,6 +168,18 @@
         }
     },
     {
+        "site_id": "CHM0090",
+        "name": "CHM0090 90 De Korte Street (Iconic Large Format OOH)",
+        "address": "90 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "format": "Iconic Large Format OOH",
+        "location": {
+            "coordinates": {
+                "latitude": -26.194257458513174,
+                "longitude": 28.036762882916868
+            }
+        }
+    },
+    {
         "site_id": "CHM0091",
         "name": "CHM0091 17 Melle Street",
         "address": "17 Melle Street, Johannesburg, Gauteng",

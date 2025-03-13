@@ -25,14 +25,7 @@
     "visibility": "290m",
     "obstructions": "None",
     "ara_compliant": "true",
-    "rates": {
-        "rate_card": "R35,986",
-        "discounted_rate": "R32,387",
-        "printing_and_flighting": "R5,650",
-        "cpt_cpm": "R6.85",
-        "cost_per_sqm": "R1,206.22"
-    },
-    "availability": "2025-03-23",
+
     "audience_impacts": {
         "all_adults": "4730304",
         "lsm_8_10": "1283095",

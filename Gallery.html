@@ -512,7 +512,7 @@
             try {
                 const response = await fetch(`data/${siteId}.json`);
                 const data = await response.json();
-
+                
                 // Populate site name and details
                 document.getElementById('siteName').textContent = data.name || 'No Name Available';
                 const siteDetails = document.getElementById('siteDetails');

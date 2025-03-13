@@ -22,14 +22,7 @@
     "visibility": "",
     "obstructions": "",
     "ara_compliant": "true",
-    "rates": {
-        "rate_card": "R14,195",
-        "discounted_rate": "R TBN",
-        "printing_and_flighting": "R7,270",
-        "cpt_cpm": "",
-        "cost_per_sqm": ""
-    },
-    "availability": "2025-01-21",
+
     "audience_impacts": {
         "all_adults": "",
         "lsm_8_10": "",

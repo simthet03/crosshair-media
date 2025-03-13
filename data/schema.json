@@ -37,7 +37,7 @@
       },
       "visibility": { "type": "string" },
       "obstructions": { "type": "string" },
-      "ara_compliant": { "type": "string", "enum": ["true", "false"] },
+      "ara_compliant": { "type": "string", "enum": ["Yes", "No"] },
       "rates": {
         "type": "object",
         "properties": {
