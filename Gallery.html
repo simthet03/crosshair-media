@@ -516,23 +516,31 @@
                 // Populate site name and details
                 document.getElementById('siteName').textContent = data.name || 'No Name Available';
                 const siteDetails = document.getElementById('siteDetails');
-                const keysToExclude = ['rates', 'media', 'uuid'];
+                const keysToExclude = ['rates', 'media', 'uuid','latitude','longitude'];
 
-                Object.keys(data).forEach(key => {
-                    if (!keysToExclude.includes(key) && data[key] && typeof data[key] !== 'object') {
-                        const detailItem = document.createElement('p');
+        async function appendDetails(data, parentElement, keysToExclude) {
+
+
+            Object.keys(data).forEach(key => {
+                if (!keysToExclude.includes(key) && data[key] && typeof data[key] !== 'object') {
+                    const detailItem = document.createElement('p');
+                    if (key === 'live_coordinates') {
+                        const siteId = data.site_id;
+                        detailItem.innerHTML = `<strong>${key.replace(/_/g, ' ').toUpperCase()}:</strong> <a href="Map-View.html?siteId=${siteId}">${data[key]}</a>`;
+                    } else {
                         detailItem.innerHTML = `<strong>${key.replace(/_/g, ' ').toUpperCase()}:</strong> ${data[key]}`;
-                        siteDetails.appendChild(detailItem);
-                    } else if (typeof data[key] === 'object' && key !== 'media') {
-                        Object.keys(data[key]).forEach(subKey => {
-                            if (data[key][subKey]) {
-                                const detailItem = document.createElement('p');
-                                detailItem.innerHTML = `<strong>${subKey.replace(/_/g, ' ').toUpperCase()}:</strong> ${data[key][subKey]}`;
-                                siteDetails.appendChild(detailItem);
-                            }
-                        });
                     }
-                });
+                    parentElement.appendChild(detailItem);
+                } else if (typeof data[key] === 'object' && key !== 'media') {
+                    const subElement = document.createElement('div');
+                    subElement.classList.add('sub-details');
+                    appendDetails(data[key], subElement, keysToExclude);
+                    parentElement.appendChild(subElement);
+                }
+            });
+}
+
+                appendDetails(data, siteDetails, keysToExclude);
 
                 // Handle images dynamically
                 const imageDirectory = `data/images/`;

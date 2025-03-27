@@ -4,9 +4,10 @@
     "name": "Queen Elizabeth Bridge Wrap",
     "location": {
         "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates": "-26.195999, 28.037148",
         "coordinates": {
-            "latitude": "-26.195999",
-            "longitude": "28.037148"
+            "latitude": -26.195999,
+            "longitude": 28.037148
         }
     },
     "description": "Sightlines from Northbound commuter traffic leaving JHB CBD and entering the heart of Braamfontein CBD and retail node via the Queen Elizabeth bridge.",

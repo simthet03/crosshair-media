@@ -3,7 +3,8 @@
     "site_id": "CHM0021",
     "name": "CHM0021 16 Melle Street (Street Wallscape)",
     "location": {
-        "address": "16 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "address": "17 Melle Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates": "-26.188163669483295, 28.035172882777548",
         "coordinates": {
             "latitude": -26.188163669483295,
             "longitude": 28.035172882777548
@@ -21,7 +22,7 @@
     ],
     "visibility": "",
     "obstructions": "",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
 
     "audience_impacts": {
         "all_adults": "",

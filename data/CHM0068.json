@@ -4,9 +4,10 @@
     "name": "CHM0068 South Point Student Res (North & West Facing)",
     "location": {
         "address": "66 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.193880,28.034034",
         "coordinates": {
-            "latitude": "-26.193880",
-            "longitude": "28.034034"
+            "latitude": -26.193880,
+            "longitude": 28.034034
         }
     },
     "description": "Premium gateway site into Braamfontein from Northern Suburbs. Located in the heart of Braamfontein retail node & CBD. Sightlines from Southbound commuter traffic on Bertha Street heading towards Nelson Mandela Bridge.",
@@ -30,7 +31,7 @@
     "illumination": "",
     "visibility": "376m",
     "obstructions": "None",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
     "audience_impacts": {
         "all_adults": "9080370",
         "lsm_8_10": "2502146",

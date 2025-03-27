@@ -4,9 +4,10 @@
     "name": "CHM0070 1 Biccard Street",
     "location": {
         "address": "1 Biccard Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.1944016, 28.03722195",
         "coordinates": {
-            "latitude": -26.1944016,
-            "longitude": 28.03722195
+            "latitude": "-26.1944016",
+            "longitude": "28.03722195"
         }
     },
     "description": "Static site. Located at the bottom of Braamfontein. Sightlines from Westbound commuter traffic down Wolmarans Street from Park Station heading towards the M1 highway.",
@@ -24,7 +25,7 @@
     "illumination": "",
     "visibility": "",
     "obstructions": "",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
     "audience_impacts": {
         "all_adults": "",
         "lsm_8_10": "",

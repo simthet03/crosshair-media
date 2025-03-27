@@ -4,9 +4,10 @@
     "name": "CHM0088 87 Juta Street",
     "location": {
         "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.194257458513174, 28.036762882916868",
         "coordinates": {
-            "latitude": -26.194257458513174,
-            "longitude": 28.036762882916868
+            "latitude": "-26.194257458513174",
+            "longitude": "28.036762882916868"
         }
     },
     "description": "Static site. Located in the heart of Braamfontein retail node. Sightlines from Northbound commuter traffic up Melle Street. Situated opposite South Point HQ. High pedestrian foot flow.",
@@ -24,7 +25,7 @@
     "illumination": "",
     "visibility": "",
     "obstructions": "",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
     "audience_impacts": {
         "all_adults": "",
         "lsm_8_10": "",

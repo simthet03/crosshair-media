@@ -4,6 +4,7 @@
     "name": "CHM0023 90 De Korte Street (Shop Front | Glass Facade)",
     "location": {
         "address": "90 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.1936289,28.0364088",
         "coordinates": {
             "latitude": -26.1936289,
             "longitude": 28.0364088
@@ -21,7 +22,7 @@
     ],
     "visibility": "",
     "obstructions": "",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
 
     "audience_impacts": {
         "all_adults": "",

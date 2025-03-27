@@ -4,10 +4,12 @@
     "name": "CHM0089 87 Juta Street (Street Wallscape)",
     "location": {
         "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.194257458513174, 28.036762882916868",
         "coordinates": {
-            "latitude": -26.194257458513174,
-            "longitude": 28.036762882916868
+            "latitude": "-26.194257458513174",
+            "longitude": "28.036762882916868"
         }
+
     },
     "description": "Juta Street wall. Situated outside Argon Student resident building. High pedestrian foot-flow.",
     "format": "Street Wallscape",
@@ -21,7 +23,7 @@
     ],
     "visibility": "",
     "obstructions": "",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
 
     "audience_impacts": {
         "all_adults": "",

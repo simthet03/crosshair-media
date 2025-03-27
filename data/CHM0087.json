@@ -4,6 +4,7 @@
     "name": "CHM0087 Hop-On Hop-Off Tour Stop",
     "location": {
         "address": "87 Juta Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates": "-26.194125,28.036280",
         "coordinates": {
             "latitude": "-26.194125",
             "longitude": "28.036280"
@@ -24,7 +25,7 @@
     "illumination": "",
     "visibility": "290m",
     "obstructions": "None",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
 
     "audience_impacts": {
         "all_adults": "4730304",

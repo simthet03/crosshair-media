@@ -4,9 +4,10 @@
     "name": "CHM0041 Randlords Building Wrap",
     "location": {
         "address": "41 De Korte Street, Braamfontein, Johannesburg, Gauteng",
+        "live_coordinates":"-26.193763,28.031845",
         "coordinates": {
-            "latitude": "-26.193763",
-            "longitude": "28.031845"
+            "latitude": -26.193763,
+            "longitude": 28.031845
         }
     },
     "description": "Sightlines from Northbound commuter traffic on M2 highway, as well as Northbound commuter traffic from JHB CBD entering the heart of Braamfontein CBD and retail node by Nelson Mandela Bridge.",
@@ -24,7 +25,7 @@
     "illumination": "",
     "visibility": "350m",
     "obstructions": "None",
-    "ara_compliant": "true",
+    "ara_compliant": "Yes",
 
     "audience_impacts": {
         "all_adults": "11559895",

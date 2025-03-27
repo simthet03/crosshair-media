@@ -252,6 +252,13 @@
 
         // Function to create a card
         function createCard(site) {
+            const name = site.name ? site.name.toLowerCase() : 'unnamed site';
+            const address = site.location?.address ? site.location.address.toLowerCase() : 'no address';
+            const latitude = site.location?.coordinates?.latitude || 0;
+            const longitude = site.location?.coordinates?.longitude || 0;
+            const size = site.displays?.[0]?.size || "N/A";
+            const format = site.format || "N/A";
+            
             return `
                 <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer" data-name="${site.name.toLowerCase()}" data-location="${site.location.address.toLowerCase()}" onclick="openModal('${site.site_id}')">
                     <img src="data/images/${site.site_id}-image1.jpg" alt="Site Image" class="w-full h-48 object-cover">
@@ -261,7 +268,6 @@
                         <p class="text-gray-600 text-sm">Location: ${site.location.address}</p>
                         <p class="text-gray-600 text-sm">Size: ${site.displays[0]?.size || "N/A"}</p>
                         <p class="text-gray-600 text-sm">Type: ${site.format}</p>
-                        <p class="text-gray-600 text-sm">Availability: ${site.availability}</p>
                     </div>
                     <div class="flex justify-around p-4 border-t">
                         <a href="https://maps.google.com?q=${site.location.coordinates.latitude},${site.location.coordinates.longitude}" target="_blank" class="icon">
