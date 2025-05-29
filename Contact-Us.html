@@ -296,8 +296,8 @@
             <h3 class="text-xl font-bold mb-4">Contact Details</h3>
             <div class="flex items-center mb-4">
                 <i class="fas fa-map-marker-alt icon mr-2"></i>
-                <p>“First Floor, Block C, Monte Circle Business Park, 178
-                    Montecasino Blvd, Fourways, Sandton, 219”</p>
+                <p>First Floor, Block C, Monte Circle Business Park, 178
+                    Montecasino Blvd, Fourways, Sandton, 219</p>
             </div>
             <div class="flex items-center mb-4">
                 <i class="fas fa-globe icon mr-2"></i>
@@ -306,20 +306,27 @@
         </div>
         <div class="form-container bg-gray-50 p-6 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold mb-4">Send Us a Message</h2>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/xrbqnwga" method="POST">
                 <label for="name" class="block mb-2">Name</label>
-                <input type="text" id="name" name="name" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg">
+                <input type="text" id="name" name="Name" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg">
                 
                 <label for="email" class="block mb-2">Email</label>
-                <input type="email" id="email" name="_replyto" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg">
+                <input type="email" id="email" name="Reply To" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg">
                 
                 <label for="message" class="block mb-2">Message</label>
-                <textarea id="message" name="message" rows="4" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg"></textarea>
+                <textarea id="message" name="Message" rows="4" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg"></textarea>
                 
                 <!-- Hidden field to specify your email -->
-                <input type="hidden" name="_to" value="siyabongamthethwa70@gmail.com">
+                <input type="hidden" name="To" value="siyabongamthethwa70@gmail.com">
                 
                 <button type="submit" class="w-full bg-red-500 text-white font-bold py-3 rounded-lg hover:bg-red-600 transition">Send Message</button>
+                <!-- <script>
+                    document.querySelector('form').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevent default form submission
+                        this.reset(); // Clear the form fields
+                        this.submit(); // Submit the form
+                    });
+                </script> -->
             </form>
         </div>
     </div>
