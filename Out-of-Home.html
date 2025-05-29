@@ -3,7 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Out of Home (OOH)</title>
+    <title>Out-of-Home Advertising | Crosshair Media OOH Solutions South Africa</title>
+    <meta name="title" content="Out-of-Home Advertising | Crosshair Media OOH Solutions South Africa">
+    <meta name="description" content="Crosshair Media offers comprehensive out-of-home advertising solutions including traditional billboards, digital displays, and programmatic OOH targeting youth markets.">
+    <meta name="keywords" content="out-of-home advertising, OOH advertising, billboard advertising, programmatic advertising, retail displays, outdoor advertising South Africa">
+    <meta name="author" content="Crosshair Media">
+    <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <style>
@@ -168,30 +173,109 @@
     <header class="fixed w-full bg-white shadow-md z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="index.html"><img alt="Crosshair Media" class="h-16" onerror="this.onerror=null; this.parentElement.innerHTML='&lt;div class=\'h-12 w-48 bg-gray-300 rounded\'&gt;&lt;/div&gt;'" src="images/logo.webp"/></a>
+                <div class="flex items-center flex-shrink-0">
+                    <a href="index.html">
+                        <!-- Made logo responsive with max-width and height constraints -->
+                        <img src="images/logo.webp" alt="Crosshair Media" class="h-12 sm:h-14 lg:h-16 max-w-[200px] object-contain"
+                             onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'h-12 w-32 sm:h-14 sm:w-40 lg:h-16 lg:w-48 bg-gray-300 rounded\'></div>'">
+                    </a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8">
+                <!-- Desktop Navigation - Only show on large screens (1024px+) -->
+                <div class="hidden lg:flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
                     <!-- Dropdown Menu for 'What We Offer' -->
                     <div class="relative group">
-                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all">What We Offer</a>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2">
-                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Community-Engagement.html">Community Engagement</a>
-                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Data-and-Insights.html">Data and Insights</a>
-                            <a class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500" href="Out-of-Home.html">Out of Home (OOH)</a>
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all cursor-pointer whitespace-nowrap text-sm lg:text-base">What We Offer</a>                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 min-w-[200px] right-0 top-full">
+                            <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 whitespace-nowrap">Community Engagement</a>
+                            <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 whitespace-nowrap">Data and Insights</a>
+                            <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 whitespace-nowrap">Out of Home (OOH)</a>
                         </div>
                     </div>
-                    <a class="nav-link text-gray-800 hover:text-red-500" href="Why-Choose-Us.html">Why Choose Us</a>
-                    <a class="nav-link text-gray-800 hover:text-red-500" href="About.html">About</a>
-                    <a class="nav-link text-gray-800 hover:text-red-500" href="Clients-Partners.html">Clients/Partners</a>
-                    <a class="nav-link text-gray-800 hover:text-red-500" href="Media-Assets.html">Media Assets</a>
-                    <a class="contact-btn bg-red-500 text-white px-6 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600" href="Contact-Us.html">
+    
+                    <a href="Why-Choose-Us.html" class="nav-link text-gray-800 hover:text-red-500 whitespace-nowrap">Why Choose Us</a>
+                    <a href="About.html" class="nav-link text-gray-800 hover:text-red-500">About</a>
+                    <a href="Clients-Partners.html" class="nav-link text-gray-800 hover:text-red-500 whitespace-nowrap">Clients/Partners</a>
+                    <a href="Media-Assets.html" class="nav-link text-gray-800 hover:text-red-500 whitespace-nowrap">Media Assets</a>
+                    <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-2 py-1.5 lg:px-2.5 xl:px-4 2xl:px-6 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600 whitespace-nowrap text-xs lg:text-sm xl:text-base flex-shrink-0">
                         Contact Us
                     </a>
+                </div>
+    
+                <!-- Tablet Navigation - Show on medium to large screens (768px-1023px) -->
+                <div class="hidden md:flex lg:hidden items-center space-x-4">
+                    <!-- Simplified tablet menu with most important links -->
+                    <div class="relative group">
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all cursor-pointer text-sm">What We Offer</a>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 min-w-[180px] right-0 top-full">
+                            <a href="Community-Engagement.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">Community Engagement</a>
+                            <a href="Data-and-Insights.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">Data and Insights</a>
+                            <a href="Out-of-Home.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">Out of Home (OOH)</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <!-- Dropdown Menu for 'About Us' For Medium Sized Screens -->
+                        <a class="nav-link text-gray-800 hover:text-red-500 transition-all cursor-pointer text-sm">About Us</a>
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 min-w-[180px] right-0 top-full">
+                            <a href="About.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">About Us</a>
+                            <a href="Why-Choose-Us.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">Why Choose Us</a>
+                            <a href="Clients-Partners.html" class="block px-3 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 text-sm">Clients/Partners</a>
+                        </div>
+                    </div>
+                    <a href="Media-Assets.html" class="nav-link text-gray-800 hover:text-red-500 text-sm">Media Assets</a>
+                    <a href="Contact-Us.html" class="contact-btn bg-red-500 text-white px-3 py-2 rounded-full transition-all transform hover:scale-110 hover:shadow-lg hover:bg-red-600 text-sm whitespace-nowrap">
+                        Contact Us
+                    </a>
+                </div>
+    
+                <!-- Mobile Menu Button - Show on small and medium screens -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+    
+            <!-- Mobile Navigation - Only show on small screens -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="Community-Engagement.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Community Engagement</a>
+                    <a href="Data-and-Insights.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Data and Insights</a>
+                    <a href="Out-of-Home.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Out of Home (OOH)</a>
+                    <a href="Why-Choose-Us.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Why Choose Us</a>
+                    <a href="About.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">About</a>
+                    <a href="Clients-Partners.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Clients/Partners</a>
+                    <a href="Media-Assets.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-red-500 rounded">Media Assets</a>
+                    <a href="Contact-Us.html" class="block px-4 py-2 bg-red-500 text-white rounded-full text-center hover:bg-red-600 mx-4 mt-2">Contact Us</a>
                 </div>
             </div>
         </nav>
     </header>
+
+    <script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const heroSection = document.querySelector('.hero-section');
+    const header = document.querySelector('header');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Function to adjust hero padding
+    function adjustHeroPadding() {
+        if (heroSection && header) {
+            const headerHeight = header.offsetHeight;
+            heroSection.style.paddingTop = `${headerHeight}px`;
+            console.log('Set hero padding to:', headerHeight);
+        }
+    }
+
+    // Run adjustment immediately and after a slight delay to ensure everything is loaded
+    adjustHeroPadding();
+    setTimeout(adjustHeroPadding, 100); // Run again after a short delay to be safe
+    
+    // Also adjust on window resize
+    window.addEventListener('resize', adjustHeroPadding);
+    </script>
     <!-- Hero Section -->
     <section class="relative h-[100vh] flex items-center zoom-effect">
         <!-- Dark Overlay -->
@@ -214,13 +298,13 @@
     <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-gray-900 section-title text-center">Overview</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
                 In South Africa, Out of Home continues to demonstrate its capacity to reliably reach a specified audience and has proven to be fantastically adaptive and resilient when it comes to the changes brought about by digital and internet advertising.
             </p>
-            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
                 At Crosshair Media, we see OOH as a high-impact platform that allows us to position your campaign effectively, ensure visibility, and promote brand recall and affinity.
             </p>
-            <p class="text-lg text-gray-700 leading-relaxed">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
                 Our campaigns embrace the evolving media landscape, leveraging innovative approaches like Digital Out of Home (DOOH) and Programmatic Digital Out of Home (PDOOH). These strategies ensure your brand reaches the right audience, including South Africa’s progressive and captive student youth market.
             </p>
         </div>
@@ -231,15 +315,78 @@
             <h2 class="text-3xl font-bold text-gray-900 text-center section-title">Client Spotlight</h2>
             <div class="flex flex-col md:flex-row items-center mt-8">
                 <div class="md:w-1/2">
-                    <img alt="Standard Bank OOH Campaign" class="rounded-lg shadow-lg" src="images/oohBanner.png"/>
+                    <div class="relative">
+                        <div class="carousel overflow-hidden rounded-lg shadow-lg bg-transparent">
+                            <div class="carousel-inner flex transition-transform duration-500 ease-in-out" id="carousel-inner" style="transform: translateX(0%);">
+                                <img alt="KFC OOH Campaign 1" class="w-full h-auto object-cover flex-shrink-0" src="images/KFC_OOH_BANNER.jpg"/>
+                                <img alt="KFC OOH Campaign 2" class="w-full h-auto object-cover flex-shrink-0" src="images/KFC_OOH_BANNER_2.jpg"/>
+                                <img alt="KFC OOH Campaign 3" class="w-full h-auto object-cover flex-shrink-0" src="images/KFC_OOH_BANNER_3.jpg"/>
+                            </div>
+                        </div>
+                        <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-10 transition-colors duration-200" id="prev-btn">
+                            &#10094;
+                        </button>
+                        <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full z-10 transition-colors duration-200" id="next-btn">
+                            &#10095;
+                        </button>
+                    </div>
                 </div>
+                
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const carouselInner = document.getElementById('carousel-inner');
+                    const prevBtn = document.getElementById('prev-btn');
+                    const nextBtn = document.getElementById('next-btn');
+                    let currentIndex = 0;
+                    let autoScrollInterval;
+                
+                    function updateCarousel() {
+                        const totalImages = carouselInner.children.length;
+                        const offset = -currentIndex * 100;
+                        carouselInner.style.transform = `translateX(${offset}%)`;
+                    }
+                
+                    function startAutoScroll() {
+                        autoScrollInterval = setInterval(() => {
+                            currentIndex = (currentIndex < carouselInner.children.length - 1) ? currentIndex + 1 : 0;
+                            updateCarousel();
+                        }, 3000);
+                    }
+                
+                    function stopAutoScroll() {
+                        clearInterval(autoScrollInterval);
+                    }
+                
+                    // Event listeners
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselInner.children.length - 1;
+                        updateCarousel();
+                        startAutoScroll(); // Restart auto-scroll
+                    });
+                
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoScroll();
+                        currentIndex = (currentIndex < carouselInner.children.length - 1) ? currentIndex + 1 : 0;
+                        updateCarousel();
+                        startAutoScroll(); // Restart auto-scroll
+                    });
+                
+                    // Pause auto-scroll on hover
+                    carouselInner.addEventListener('mouseenter', stopAutoScroll);
+                    carouselInner.addEventListener('mouseleave', startAutoScroll);
+                
+                    // Start auto-scroll
+                    startAutoScroll();
+                });
+                </script>
                 <div class="md:w-1/2 md:pl-8 mt-6 md:mt-0">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Standard Bank: 'We are Culture'</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                        Crosshair Media's client, Standard Bank, has taken advantage of our excellent and relevant OOH and DOOH billboard opportunities in Braamfontein. The groundbreaking <strong>‘We are Culture’</strong> exhibition celebrates the re-opening of the Standard Bank gallery after a two-year closure.
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4"> KFC: Crunch Time</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                        Crosshair Media’s long-standing client, KFC, has consistently leveraged our marquee OOH billboard in Braamfontein to bring bold, high-impact campaigns to life. Over the years, KFC has activated several standout campaigns on this site, including KFC Crunch Master, KFC All Star Legends, and KFC Crunch Time, among many others
                     </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        This campaign demonstrates how OOH advertising can effectively connect with a vibrant and diverse audience, enhancing visibility and fostering meaningful brand connections in the heart of Johannesburg.
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                        These campaigns demonstrate the power of OOH advertising to connect with a young, energetic urban audience. Boosting visibility and reinforcing brand affinity in one of Johannesburg’s most dynamic cultural and commuter hubs.
                     </p>
                 </div>
             </div>
@@ -252,7 +399,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
                 <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Large Format Iconic</h3>
-                    <p class="text-gray-600">Building wraps, streetside billboards, and other large-format options.</p>
+                    <p class="text-gray-600 leading-relaxed text-center mb-6 text-justify">Building wraps, streetside billboards, and other large-format options.</p>
                 </div>
                 <div class="card bg-white rounded-lg shadow-lg p-6 text-center">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Digital Out of Home</h3>
@@ -277,7 +424,7 @@
     <section class="py-12 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-gray-900 text-center section-title">Benefits</h2>
-            <p class="text-lg text-gray-700 text-center mb-12">
+            <p class="ttext-lg text-gray-700 leading-relaxed mb-6 text-justify text-center">
                 Discover the advantages of using Out of Home (OOH) advertising to amplify your brand's reach and engagement.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -316,7 +463,7 @@
     <section class="py-12 bg-white text-center">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-4">Start Your Campaign</h2>
-            <p class="text-lg mb-6">
+            <p class="text-lg mb-6 text-justify">
                 Connect with us to explore our complete OOH offerings, from creative approval to production and flighting.
             </p>
             <a class="bg-red-500 text-white font-bold px-6 py-3 rounded-full hover:bg-red-600 transition" href="Contact-Us.html">
